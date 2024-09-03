@@ -42,7 +42,7 @@
             {
                 _isPlaceholderActive = true;
                 Text = _placeholderText;
-                ForeColor = Color.Gray;
+                ForeColor = Color.DarkGray;
             }
             else
             {
@@ -59,7 +59,7 @@
             {
                 _isPlaceholderActive = true;
                 Text = _placeholderText;
-                ForeColor = Color.Gray;
+                ForeColor = Color.DarkGray;
             }
             else
             {

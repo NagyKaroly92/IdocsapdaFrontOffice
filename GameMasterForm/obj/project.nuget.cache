@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/3AKp7e54Vk=",
+  "dgSpecHash": "cAp1AE1APjQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\KA-DELL\\source\\repos\\DAL\\GameMasterForm\\GameMasterForm.csproj",
+  "projectFilePath": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\GameMasterForm\\GameMasterForm.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KA-DELL\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\KA-DELL\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",

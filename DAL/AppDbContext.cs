@@ -13,6 +13,7 @@ namespace DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql("Server=192.168.2.11;Port=3306;Database=idocsapda;User=Idocsapda;Password=icstestuser;",
+            //optionsBuilder.UseMySql("Server=kahome.zapto.org;Port=19202;Database=idocsapda;User=Idocsapda;Password=icstestuser;",
                 new MySqlServerVersion(new Version(10, 5, 9)));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

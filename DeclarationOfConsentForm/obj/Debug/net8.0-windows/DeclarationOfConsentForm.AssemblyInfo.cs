@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeclarationOfConsentForm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd246f0e73e2d30fbbc0bfca4832f2d0fdaca4e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeclarationOfConsentForm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeclarationOfConsentForm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

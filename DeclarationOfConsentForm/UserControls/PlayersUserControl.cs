@@ -120,12 +120,12 @@ namespace DeclarationOfConsentForm.UserControls
 
             if (string.IsNullOrEmpty(player.Name) || player.Name == tb_Name.PlaceholderText || player.Name.Split(' ').Count() < 2)
             {
-                this.tb_Name.BackColor = Color.Coral;
+                this.tb_Name.BackColor = Color.PeachPuff;
                 player.IsValid = false;
             }
-            if (string.IsNullOrEmpty(player.Email) && !ContainsDiacritics(player.Email) && (player.Email == tb_Email.PlaceholderText || !player.Email.Contains('@') || !player.Email.Contains('.')))
+            if (string.IsNullOrEmpty(player.Email) || (ContainsDiacritics(player.Email) || (player.Email == tb_Email.PlaceholderText || !player.Email.Contains('@') || !player.Email.Contains('.'))))
             {
-                this.tb_Email.BackColor = Color.Coral;
+                this.tb_Email.BackColor = Color.PeachPuff;
 
                 if (player.Email != tb_Email.PlaceholderText)
                 {
@@ -134,12 +134,12 @@ namespace DeclarationOfConsentForm.UserControls
             }
             if (string.IsNullOrEmpty(tb_BirthDate.Text) || tb_BirthDate.Text == tb_BirthDate.PlaceholderText || !(tb_BirthDate.Text.Length == 5 && tb_BirthDate.Text.Split('.')[0].Length == 2))
             {
-                this.tb_BirthDate.BackColor = Color.Coral;
+                this.tb_BirthDate.BackColor = Color.PeachPuff;
                 player.IsValid = false;
             }
             if (string.IsNullOrEmpty(player.BirthYear) || player.BirthYear == tb_BirthYear.PlaceholderText || player.BirthYear.Length != 4)
             {
-                this.tb_BirthYear.BackColor = Color.Coral;
+                this.tb_BirthYear.BackColor = Color.PeachPuff;
                 player.IsValid = false;
             }
             if (!player.Accept1)
@@ -152,7 +152,7 @@ namespace DeclarationOfConsentForm.UserControls
             }
             if (string.IsNullOrEmpty(tb_ZipCode.Text) || tb_ZipCode.Text == tb_ZipCode.PlaceholderText || !int.TryParse(tb_ZipCode.Text, out a))
             {
-                this.tb_ZipCode.BackColor = Color.Coral;
+                this.tb_ZipCode.BackColor = Color.PeachPuff;
                 player.IsValid = false;
             }
 
@@ -160,7 +160,7 @@ namespace DeclarationOfConsentForm.UserControls
             {
                 this.listView1.Items[selectedItem].BackColor = Color.LightGreen;
             }
-            
+
             this.button1.Enabled = true;
             foreach (var item in this.Players)
             {
@@ -192,49 +192,7 @@ namespace DeclarationOfConsentForm.UserControls
             // Megjeleníti az új formot
             browserForm.ShowDialog();
         }
-        /*
-        private void button2_Click(object sender, EventArgs e)
-        {
-            int a = 0;
-            if (this.listView1.SelectedItems.Count > 0)
-            {
-                this.Players[selectedItem].Name = this.tb_Name.Text;
-                this.Players[selectedItem].Email = this.tb_Email.Text;
-                this.Players[selectedItem].BirthDate = tb_BirthDate.Text;
-                this.Players[selectedItem].BirthYear = tb_BirthYear.Text;
-                if (!string.IsNullOrEmpty(this.tb_ZipCode.Text))
-                {
-                    this.Players[selectedItem].ZipCode = int.Parse(this.tb_ZipCode.Text);
-                }
-                this.Players[selectedItem].Accept1 = this.checkBox1.Checked;
-                this.Players[selectedItem].Accept2 = this.checkBox2.Checked;
 
-                this.tb_Name.Text = this.Players[listView1.SelectedItems[0].Index].Name;
-                this.tb_Email.Text = this.Players[listView1.SelectedItems[0].Index].Email;
-                if (this.Players[listView1.SelectedItems[0].Index].BirthDate != null)
-                {
-                    this.tb_BirthDate.Text = this.Players[listView1.SelectedItems[0].Index].BirthDate;
-                }
-                this.tb_ZipCode.Text = this.Players[listView1.SelectedItems[0].Index].ZipCode.ToString();
-                this.checkBox1.Checked = this.Players[listView1.SelectedItems[0].Index].Accept1;
-                this.checkBox2.Checked = this.Players[listView1.SelectedItems[0].Index].Accept2;
-
-                this.tb_Name.UpdatePlaceholder();
-                this.tb_Email.UpdatePlaceholder();
-                this.tb_BirthYear.UpdatePlaceholder();
-                this.tb_BirthDate.UpdatePlaceholder();
-                this.tb_ZipCode.UpdatePlaceholder();
-
-                this.selectedItem = listView1.SelectedItems[0].Index;
-            }
-            Validate(this.Players[listView1.SelectedItems[0].Index]);
-            if (listView1.SelectedItems[0].Index < listView1.Items.Count - 1)
-            {
-                listView1.SelectedItems.Clear();
-                listView1.Items[selectedItem + 1].Selected = true;
-            }
-            Validate(this.Players[listView1.SelectedItems[0].Index]);
-        }*/
         private void button2_Click(object sender, EventArgs e)
         {
             int a = 0;
@@ -254,11 +212,11 @@ namespace DeclarationOfConsentForm.UserControls
 
                 // Frissítjük a validációt és a színt az aktuális játékosnál
                 Validate(this.Players[selectedItem]);
-                
+
                 // Újrarajzoljuk az adott ListView elemet, hogy a színváltozás látható legyen
                 this.listView1.Items[selectedItem].BackColor = this.Players[selectedItem].IsValid ? Color.LightGreen : Color.Coral;
                 this.listView1.Items[selectedItem].EnsureVisible();
-                
+
                 // Ha van még további játékos, akkor váltsunk a következőre
                 if (listView1.SelectedItems[0].Index < listView1.Items.Count - 1)
                 {
@@ -293,27 +251,36 @@ namespace DeclarationOfConsentForm.UserControls
             timer.Elapsed += Timer_Elapsed;
             timer.AutoReset = false; // Az időzítő csak egyszer fusson le
             timer.Start();
-            
+
             // Megjelenítjük a MessageBox-ot
             DialogResult result = CustomMessageBox.Show("Köszönjük!\nA játékmesteretek hamarosan jelentkezik!", "Mentés kész!");
-            
+
             // Ha a felhasználó az "OK" gombra kattint, leállítjuk az időzítőt és meghívjuk a Method1 metódust
             if (result == DialogResult.OK)
             {
                 timer.Stop();
-                Method1();
+                EventHandler();
             }
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             // Ha az időzítő lejár, meghívjuk a Method1 metódust a UI szálon
-            this.Invoke(new Action(Method1));
+            this.Invoke(new Action(EventHandler));
         }
-        private void Method1()
+        private void EventHandler()
         {
-            
             ButtonClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            Validate(this.Players[listView1.SelectedItems[0].Index]);
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            Validate(this.Players[listView1.SelectedItems[0].Index]);
         }
     }
 }

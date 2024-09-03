@@ -49,9 +49,9 @@
             // button1
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(839, 494);
+            button1.Location = new Point(817, 481);
             button1.Name = "button1";
-            button1.Size = new Size(77, 29);
+            button1.Size = new Size(99, 42);
             button1.TabIndex = 21;
             button1.Text = "Mentés";
             button1.UseVisualStyleBackColor = true;
@@ -69,6 +69,7 @@
             checkBox2.TabIndex = 20;
             checkBox2.Text = "elfogadom 2";
             checkBox2.UseVisualStyleBackColor = false;
+            checkBox2.CheckedChanged += checkBox2_CheckedChanged;
             // 
             // checkBox1
             // 
@@ -82,6 +83,7 @@
             checkBox1.TabIndex = 19;
             checkBox1.Text = "elfogadom 1";
             checkBox1.UseVisualStyleBackColor = false;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // label4
             // 
@@ -176,13 +178,13 @@
             button2.Name = "button2";
             button2.Size = new Size(129, 45);
             button2.TabIndex = 31;
-            button2.Text = "Következő";
+            button2.Text = "Kész!";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
             // tb_Name
             // 
-            tb_Name.ForeColor = Color.Gray;
+            tb_Name.ForeColor = Color.DarkGray;
             tb_Name.Location = new Point(547, 27);
             tb_Name.Name = "tb_Name";
             tb_Name.PlaceholderText = "Péda Játékos";
@@ -192,7 +194,7 @@
             // 
             // tb_Email
             // 
-            tb_Email.ForeColor = Color.Gray;
+            tb_Email.ForeColor = Color.DarkGray;
             tb_Email.Location = new Point(547, 71);
             tb_Email.Name = "tb_Email";
             tb_Email.PlaceholderText = "pelda@example.com";
@@ -202,7 +204,7 @@
             // 
             // tb_BirthYear
             // 
-            tb_BirthYear.ForeColor = Color.Gray;
+            tb_BirthYear.ForeColor = Color.DarkGray;
             tb_BirthYear.Location = new Point(547, 116);
             tb_BirthYear.Name = "tb_BirthYear";
             tb_BirthYear.PlaceholderText = "1995";
@@ -212,7 +214,7 @@
             // 
             // tb_BirthDate
             // 
-            tb_BirthDate.ForeColor = Color.Gray;
+            tb_BirthDate.ForeColor = Color.DarkGray;
             tb_BirthDate.Location = new Point(547, 165);
             tb_BirthDate.Name = "tb_BirthDate";
             tb_BirthDate.PlaceholderText = "10.25";
@@ -222,7 +224,7 @@
             // 
             // tb_ZipCode
             // 
-            tb_ZipCode.ForeColor = Color.Gray;
+            tb_ZipCode.ForeColor = Color.DarkGray;
             tb_ZipCode.Location = new Point(547, 218);
             tb_ZipCode.Name = "tb_ZipCode";
             tb_ZipCode.PlaceholderText = "1075";

@@ -2360,11 +2360,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KA-DELL\\source\\repos\\DAL\\DAL\\DAL.csproj",
+      "projectUniqueName": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "C:\\Users\\KA-DELL\\source\\repos\\DAL\\DAL\\DAL.csproj",
+      "projectPath": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\KA-DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KA-DELL\\source\\repos\\DAL\\DAL\\obj\\",
+      "outputPath": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
