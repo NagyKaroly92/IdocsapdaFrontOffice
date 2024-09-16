@@ -3,7 +3,6 @@ using BLL.Model;
 using DeclarationOfConsentForm.Controls;
 using DeclarationOfConsentForm.Model;
 using System.ComponentModel;
-using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Timers;
@@ -29,20 +28,37 @@ namespace DeclarationOfConsentForm.UserControls
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-
             this.gameId = game.GameId;
 
-            for (int i = 1; i <= game.PlayerNumbers; i++)
+            if (RoomLogic.IsEnglish)
             {
-                this.listView1.Items.Add($"{i}. Játékos");
-                this.listView1.Items[i - 1].BackColor = Color.Coral;
+                for (int i = 1; i <= game.PlayerNumbers; i++)
+                {
+                    this.listView1.Items.Add($"Player {i}");
+                    this.listView1.Items[i - 1].BackColor = Color.Coral;
 
-                this.Players.Add(
-                    new DTOPlayer
-                    {
-                        GameId = game.GameId,
-                        IsValid = false
-                    });
+                    this.Players.Add(
+                        new DTOPlayer
+                        {
+                            GameId = game.GameId,
+                            IsValid = false
+                        });
+                }
+            }
+            else
+            {
+                for (int i = 1; i <= game.PlayerNumbers; i++)
+                {
+                    this.listView1.Items.Add($"{i}. Játékos");
+                    this.listView1.Items[i - 1].BackColor = Color.Coral;
+
+                    this.Players.Add(
+                        new DTOPlayer
+                        {
+                            GameId = game.GameId,
+                            IsValid = false
+                        });
+                }
             }
 
             this.listView1.SelectedItems.Clear();
@@ -164,6 +180,7 @@ namespace DeclarationOfConsentForm.UserControls
             this.button1.Enabled = true;
             foreach (var item in this.Players)
             {
+                //TODO E-mail validáció üres stringre
                 if (!item.IsValid)
                 {
                     this.button1.Enabled = false;
@@ -244,7 +261,14 @@ namespace DeclarationOfConsentForm.UserControls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PlayerLogic.SavePlayers(Players.ToList());
+            Players
+                .Where(_ => _.Email == "pl.: pelda@example.com")
+                .ToList()
+                .ForEach(_ => _.Email = "");
+            PlayerLogic.SavePlayers(Players
+                                        .Where(_ => _.GameId > int.Parse(SettingsLogic.GetSetting("LastRow")))
+                                        .OrderBy(_ => _.GameId)
+                                        .ToList());
 
             // Indítjuk a 2 perces időzítőt
             System.Timers.Timer timer = new System.Timers.Timer(120000); // 120 000 ms = 2 perc
@@ -281,6 +305,42 @@ namespace DeclarationOfConsentForm.UserControls
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             Validate(this.Players[listView1.SelectedItems[0].Index]);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            int a = 0;
+            if (this.listView1.SelectedItems.Count > 0)
+            {
+                // Aktuális játékos adatainak frissítése
+                this.Players[selectedItem].Name = this.tb_Name.Text;
+                this.Players[selectedItem].Email = this.tb_Email.Text;
+                this.Players[selectedItem].BirthDate = tb_BirthDate.Text;
+                this.Players[selectedItem].BirthYear = tb_BirthYear.Text;
+                if (!string.IsNullOrEmpty(this.tb_ZipCode.Text) && this.tb_ZipCode.Text != this.tb_ZipCode.PlaceholderText)
+                {
+                    this.Players[selectedItem].ZipCode = int.Parse(this.tb_ZipCode.Text);
+                }
+                this.Players[selectedItem].Accept1 = this.checkBox1.Checked;
+                this.Players[selectedItem].Accept2 = this.checkBox2.Checked;
+
+                // Frissítjük a validációt és a színt az aktuális játékosnál
+                Validate(this.Players[selectedItem]);
+
+                // Újrarajzoljuk az adott ListView elemet, hogy a színváltozás látható legyen
+                this.listView1.Items[selectedItem].BackColor = this.Players[selectedItem].IsValid ? Color.LightGreen : Color.Coral;
+                this.listView1.Items[selectedItem].EnsureVisible();
+
+                // Ha van még további játékos, akkor váltsunk a következőre
+                if (listView1.SelectedItems[0].Index < listView1.Items.Count - 1)
+                {
+                    listView1.SelectedItems.Clear();
+                    listView1.Items[selectedItem + 1].Selected = true;
+                }
+
+                // Frissítjük a validációt és a színt a következő játékosnál is
+                Validate(this.Players[listView1.SelectedItems[0].Index]);
+            }
         }
     }
 }

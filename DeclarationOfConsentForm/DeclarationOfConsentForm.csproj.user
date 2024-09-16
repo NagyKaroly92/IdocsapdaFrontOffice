@@ -7,6 +7,9 @@
     <Compile Update="Controls\PlaceholderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\TransparentButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

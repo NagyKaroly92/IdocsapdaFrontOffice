@@ -73,9 +73,40 @@ namespace DeclarationOfConsentForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hand_drawn_cartoon_design_button_5504519 {
+            get {
+                object obj = ResourceManager.GetObject("hand drawn cartoon design button_5504519", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap illust58_6092_01 {
             get {
                 object obj = ResourceManager.GetObject("illust58-6092-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgbin_flag_of_great_britain_flag_of_great_britain_button_flag_of_the_united_kingdom_png {
+            get {
+                object obj = ResourceManager.GetObject("imgbin_flag-of-great-britain-flag-of-great-britain-button-flag-of-the-united-king" +
+                        "dom-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgbin_flag_of_hungary_png {
+            get {
+                object obj = ResourceManager.GetObject("imgbin_flag-of-hungary-png", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

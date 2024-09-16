@@ -15,7 +15,8 @@ namespace BLL.Map
                 {
                     RoomId = context.Room.FirstOrDefault(_ => _.Name == game.RoomName).Id,
                     Time = game.Time,
-                    Players = game.PlayerNumber
+                    Players = game.PlayerNumber,
+                    IsEnglish = RoomLogic.IsEnglish ? 1 : 0
                 };
             }
             return returnValue;
@@ -31,7 +32,7 @@ namespace BLL.Map
             {
                 GameId = dtoPlayer.GameId ?? 0, // Ha a GameId null, akkor 0-ra állítjuk
                 Name = dtoPlayer.Name ?? string.Empty, // Ha a Name null, akkor üres string
-                BirthDate = dtoPlayer.BirthDate ?? string.Empty, // Ha a BirthDate null, akkor üres string
+                BirthDate = dtoPlayer.BirthDate.Replace('.', '/') ?? string.Empty, // Ha a BirthDate null, akkor üres string
                 BirthYear = dtoPlayer.BirthYear ?? string.Empty, // Ha a BirthYear null, akkor üres string
                 Email = dtoPlayer.Email ?? string.Empty, // Ha az Email null, akkor üres string
                 ZipCode = dtoPlayer.ZipCode ?? 0 // Ha a ZipCode null, akkor 0-ra állítjuk

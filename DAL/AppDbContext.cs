@@ -8,7 +8,9 @@ namespace DAL
         public DbSet<Room> Room { get; set; }
         public DbSet<Player> Player { get; set; }
         public DbSet<Game> Game { get; set; }
+        public DbSet<Settings> Settings { get; set; }
         public DbSet<GamePlayerDetails2> GamePlayerDetails2 { get; set; }
+        public DbSet<EnglishGamePlayerDetails> EnglishGamePlayerDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -22,6 +24,10 @@ namespace DAL
             {
                 entity.HasNoKey();
                 entity.ToView("gameplayerdetails2");
+            }).Entity<EnglishGamePlayerDetails>(entity =>
+            {
+                entity.HasNoKey();
+                entity.ToView("englishgameplayerdetails");
             });
         }
     }

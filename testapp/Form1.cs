@@ -1,5 +1,4 @@
 using BLL;
-using System;
 
 namespace testapp
 {
@@ -9,7 +8,12 @@ namespace testapp
         {
             InitializeComponent();
 
-            dataGridView1.DataSource = PlayerDetailsLogic.GetDetails();
+            dataGridView1.DataSource = PlayerDetailsLogic.GetEnglishDetails();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PlayerDetailsLogic.UploadEnglishGames();
         }
     }
 }
