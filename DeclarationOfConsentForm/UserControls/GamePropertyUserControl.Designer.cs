@@ -59,6 +59,7 @@
             label2.TabIndex = 2;
             label2.Text = "Pálya kiválasztása";
             label2.TextAlign = ContentAlignment.TopCenter;
+            label2.Paint += label1_Paint;
             // 
             // label3
             // 
@@ -73,6 +74,7 @@
             label3.TabIndex = 4;
             label3.Text = "Időpont";
             label3.TextAlign = ContentAlignment.TopCenter;
+            label3.Paint += label1_Paint;
             // 
             // dateTimePicker1
             // 
@@ -97,6 +99,7 @@
             label4.TabIndex = 7;
             label4.Text = "Létszám";
             label4.TextAlign = ContentAlignment.TopCenter;
+            label4.Paint += label1_Paint;
             // 
             // comboBox2
             // 

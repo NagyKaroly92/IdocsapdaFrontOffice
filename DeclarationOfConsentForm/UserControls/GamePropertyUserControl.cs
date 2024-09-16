@@ -46,5 +46,24 @@ namespace DeclarationOfConsentForm.UserControls
                 this.comboBox1.Items.AddRange(RoomLogic.GetRoomNames().ToArray());
             }
         }
+        private void label1_Paint(object sender, PaintEventArgs e)
+        {
+            Label lbl = sender as Label;
+            string text = lbl.Text;
+            Font font = lbl.Font;
+
+            // Először fekete színnel rajzoljuk a körvonalat, kicsit eltolva a szöveget.
+            for (int dx = -2; dx <= 2; dx++)
+            {
+                for (int dy = -2; dy <= 2; dy++)
+                {
+                    if (dx == 0 && dy == 0) continue; // A középső (eredeti helyzet) kihagyása
+                    e.Graphics.DrawString(text, font, Brushes.Black, lbl.ClientRectangle.X + dx, lbl.ClientRectangle.Y + dy);
+                }
+            }
+
+            // Ezután rajzoljuk meg a szöveget fehér színnel.
+            e.Graphics.DrawString(text, font, Brushes.White, lbl.ClientRectangle.X, lbl.ClientRectangle.Y);
+        }
     }
 }

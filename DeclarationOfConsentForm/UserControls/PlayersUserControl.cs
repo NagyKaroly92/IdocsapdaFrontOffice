@@ -63,7 +63,13 @@ namespace DeclarationOfConsentForm.UserControls
 
             this.listView1.SelectedItems.Clear();
             this.listView1.Items[selectedItem].Selected = true;
+
+            if (RoomLogic.IsEnglish)
+            {
+                SetLabelsToEnglish();
+            }
         }
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.listView1.SelectedItems.Count > 0)
@@ -120,7 +126,14 @@ namespace DeclarationOfConsentForm.UserControls
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            OpenBrowserDialog("https://google.com");
+            if (RoomLogic.IsEnglish)
+            {
+                OpenBrowserDialog("nyilatkozat_eng.html");
+            }
+            else
+            {
+                OpenBrowserDialog("nyilatkozat_hun.html");
+            }
         }
 
         private void Validate(DTOPlayer player)
@@ -187,7 +200,7 @@ namespace DeclarationOfConsentForm.UserControls
                 }
             }
         }
-        private void OpenBrowserDialog(string url)
+        private void OpenBrowserDialog(string filePath)
         {
             // Új Form létrehozása
             Form browserForm = new Form();
@@ -198,10 +211,16 @@ namespace DeclarationOfConsentForm.UserControls
             browserForm.ControlBox = true;
             browserForm.MinimizeBox = false;
             browserForm.MaximizeBox = false;
+
             // WebBrowser vezérlő létrehozása
             WebBrowser webBrowser = new WebBrowser();
             webBrowser.Dock = DockStyle.Fill;
-            webBrowser.Navigate(url);
+
+            // Lokális fájl elérési útjának megszerzése
+            string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filePath);
+
+            // A fájl elérési útjának megadása a WebBrowser számára
+            webBrowser.Navigate($"file:///{fullPath}");
 
             // WebBrowser hozzáadása a Form-hoz
             browserForm.Controls.Add(webBrowser);
@@ -341,6 +360,19 @@ namespace DeclarationOfConsentForm.UserControls
                 // Frissítjük a validációt és a színt a következő játékosnál is
                 Validate(this.Players[listView1.SelectedItems[0].Index]);
             }
+        }
+
+        private void SetLabelsToEnglish()
+        {
+            l_Name.Text = "Name";
+            l_Email.Text = "Email";
+            l_BirthDate.Text = "Birth Date";
+            l_BirthYear.Text = "Birth Year";
+            l_ZipCode.Text = "ZIP Code";
+            checkBox1.Text = "I accept terms and conditions.";
+            checkBox2.Text = "I have received and acknowledged the ";
+            linkLabel1.Text = "privacy notice.";
+            linkLabel1.Location = new Point(585, 317);
         }
     }
 }
