@@ -9,6 +9,7 @@ namespace DeclarationOfConsentForm.UserControls
         public GamePropertyUserControl()
         {
             InitializeComponent();
+            RoomLogic.IsEnglish = false;
             this.Dock = DockStyle.Fill;
         }
 
@@ -16,7 +17,7 @@ namespace DeclarationOfConsentForm.UserControls
         {
             BLL.RoomLogic.IsEnglishChanged += OnIsEnglishChanged;
             this.comboBox1.Items.AddRange(RoomLogic.GetRoomNames().ToArray());
-            for (int i = 2; i <= 12; i++)
+            for (int i = 2; i <= 10; i++)
             {
                 this.comboBox2.Items.Add(i);
             }

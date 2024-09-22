@@ -1,4 +1,6 @@
-﻿namespace DeclarationOfConsentForm.UserControls
+﻿using BLL;
+
+namespace DeclarationOfConsentForm.UserControls
 {
     partial class PlayersUserControl
     {
@@ -19,8 +21,6 @@
             }
             base.Dispose(disposing);
         }
-
-        #region Component Designer generated code
 
         /// <summary> 
         /// Required method for Designer support - do not modify 
@@ -261,7 +261,25 @@
             PerformLayout();
         }
 
-        #endregion
+        private void SetPlaceholders()
+        {
+            if (!RoomLogic.IsEnglish)
+            {
+                tb_Name.PlaceholderText = "pl.: Péda Játékos";
+                tb_Email.PlaceholderText = "pl.: pelda@example.com";
+                tb_BirthYear.PlaceholderText = "pl.: 1995";
+                tb_BirthDate.PlaceholderText = "pl.: 10.25";
+                tb_ZipCode.PlaceholderText = "pl.: 1075";
+            }
+            else
+            {
+                tb_Name.PlaceholderText = "e.g.: John Doe";
+                tb_Email.PlaceholderText = "e.g.: example@example.com";
+                tb_BirthYear.PlaceholderText = "e.g.: 1995";
+                tb_BirthDate.PlaceholderText = "e.g.: 10.25";
+                tb_ZipCode.PlaceholderText = "e.g.: 1075";
+            }
+        }
 
         private Button button1;
         private CheckBox checkBox2;

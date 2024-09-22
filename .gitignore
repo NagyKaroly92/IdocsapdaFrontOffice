@@ -25,3 +25,6 @@
 /.vs
 /.vs/IdocsapdaFrontOffice/v17
 /.vs/IdocsapdaFrontOffice
+/BLL/bin/Debug
+/BLL/obj/Debug
+/DeclarationOfConsentForm/obj/Debug

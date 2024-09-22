@@ -13,6 +13,7 @@ namespace testapp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            PlayerDetailsLogic.UploadHungarianGames();
             PlayerDetailsLogic.UploadEnglishGames();
         }
     }

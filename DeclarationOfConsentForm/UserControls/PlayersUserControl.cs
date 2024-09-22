@@ -32,6 +32,7 @@ namespace DeclarationOfConsentForm.UserControls
 
             if (RoomLogic.IsEnglish)
             {
+                SetLabelsToEnglish();
                 for (int i = 1; i <= game.PlayerNumbers; i++)
                 {
                     this.listView1.Items.Add($"Player {i}");
@@ -44,6 +45,10 @@ namespace DeclarationOfConsentForm.UserControls
                             IsValid = false
                         });
                 }
+                
+                this.listView1.SelectedItems.Clear();
+                this.listView1.Items[selectedItem].Selected = true;
+                
             }
             else
             {
@@ -85,13 +90,15 @@ namespace DeclarationOfConsentForm.UserControls
 
         private void SavePlayerData(int index)
         {
+            int a = 0;
+
             // Aktuális játékos adatainak mentése
             this.Players[index].Name = string.IsNullOrWhiteSpace(tb_Name.Text) || tb_Name.Text == tb_Name.PlaceholderText ? string.Empty : tb_Name.Text;
             this.Players[index].Email = string.IsNullOrWhiteSpace(tb_Email.Text) || tb_Email.Text == tb_Email.PlaceholderText ? string.Empty : tb_Email.Text;
             this.Players[index].BirthDate = string.IsNullOrWhiteSpace(tb_BirthDate.Text) || tb_BirthDate.Text == tb_BirthDate.PlaceholderText ? string.Empty : tb_BirthDate.Text;
             this.Players[index].BirthYear = string.IsNullOrWhiteSpace(tb_BirthYear.Text) || tb_BirthYear.Text == tb_BirthYear.PlaceholderText ? string.Empty : tb_BirthYear.Text;
 
-            if (!string.IsNullOrEmpty(this.tb_ZipCode.Text) && tb_ZipCode.Text != tb_ZipCode.PlaceholderText)
+            if (!string.IsNullOrEmpty(this.tb_ZipCode.Text) && int.TryParse(this.tb_ZipCode.Text, out a) /* && tb_ZipCode.Text != tb_ZipCode.PlaceholderText*/)
             {
                 this.Players[index].ZipCode = int.Parse(this.tb_ZipCode.Text);
             }
@@ -124,6 +131,7 @@ namespace DeclarationOfConsentForm.UserControls
 
             Validate(this.Players[index]);
         }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (RoomLogic.IsEnglish)
@@ -200,6 +208,7 @@ namespace DeclarationOfConsentForm.UserControls
                 }
             }
         }
+
         private void OpenBrowserDialog(string filePath)
         {
             // Új Form létrehozása
@@ -372,7 +381,29 @@ namespace DeclarationOfConsentForm.UserControls
             checkBox1.Text = "I accept terms and conditions.";
             checkBox2.Text = "I have received and acknowledged the ";
             linkLabel1.Text = "privacy notice.";
+
+            tb_Name.Text = "";
+            tb_Name.PlaceholderText = "e.g.: John Doe";
+            tb_Name.UpdatePlaceholder();
+
+            tb_Email.Text = "";
+            tb_Email.PlaceholderText = "e.g.: example@example.com";
+            tb_Email.UpdatePlaceholder();
+
+            tb_BirthYear.Text = "";
+            tb_BirthYear.PlaceholderText = "e.g.: 1995";
+            tb_BirthYear.UpdatePlaceholder();
+
+            tb_BirthDate.Text = "";
+            tb_BirthDate.PlaceholderText = "e.g.: 10.25";
+            tb_BirthDate.UpdatePlaceholder();
+
+            tb_ZipCode.Text = "";
+            tb_ZipCode.PlaceholderText = "e.g.: 1075";
+            tb_ZipCode.UpdatePlaceholder();
+
             linkLabel1.Location = new Point(585, 317);
         }
+
     }
 }
