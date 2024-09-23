@@ -16,5 +16,10 @@ namespace GameMasterForm
             dataGridView1.DataSource = PlayerLogic.GetPlayers(((DTOGame)comboBox1.SelectedItem).Id)
                 .Select(_ => new { _.Name, _.BirthYear, _.BirthDate, _.Email }).ToList();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.comboBox1.DataSource = GameLogic.GetGames();
+        }
     }
 }

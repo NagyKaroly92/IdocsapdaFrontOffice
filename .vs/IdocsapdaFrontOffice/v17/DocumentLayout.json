@@ -11,6 +11,22 @@
       "RelativeMoniker": "D:0:0:{6F6D0B37-83A9-41F2-A63F-F67706C75E04}|DeclarationOfConsentForm\\DeclarationOfConsentForm.csproj|solutionrelative:declarationofconsentform\\usercontrols\\playersusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E172A167-72C1-40F0-9A2D-5939E3C368A4}|GameMasterForm\\GameMasterForm.csproj|d:\\git\\idocsapda\\idocsapdafrontoffice\\gamemasterform\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E172A167-72C1-40F0-9A2D-5939E3C368A4}|GameMasterForm\\GameMasterForm.csproj|solutionrelative:gamemasterform\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E172A167-72C1-40F0-9A2D-5939E3C368A4}|GameMasterForm\\GameMasterForm.csproj|d:\\git\\idocsapda\\idocsapdafrontoffice\\gamemasterform\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E172A167-72C1-40F0-9A2D-5939E3C368A4}|GameMasterForm\\GameMasterForm.csproj|solutionrelative:gamemasterform\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E4127E6-DA84-491C-8183-6B4E0BFCB2D0}|BLL\\BLL.csproj|d:\\git\\idocsapda\\idocsapdafrontoffice\\bll\\settingslogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E4127E6-DA84-491C-8183-6B4E0BFCB2D0}|BLL\\BLL.csproj|solutionrelative:bll\\settingslogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{568A9D70-D3CB-4023-885B-E3FCE81AD8BB}|DAL\\DAL.csproj|d:\\git\\idocsapda\\idocsapdafrontoffice\\dal\\dbsets\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{568A9D70-D3CB-4023-885B-E3FCE81AD8BB}|DAL\\DAL.csproj|solutionrelative:dal\\dbsets\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6F6D0B37-83A9-41F2-A63F-F67706C75E04}|DeclarationOfConsentForm\\DeclarationOfConsentForm.csproj|d:\\git\\idocsapda\\idocsapdafrontoffice\\declarationofconsentform\\usercontrols\\playersusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F6D0B37-83A9-41F2-A63F-F67706C75E04}|DeclarationOfConsentForm\\DeclarationOfConsentForm.csproj|solutionrelative:declarationofconsentform\\usercontrols\\playersusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -49,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{507A20FF-3E0B-46BD-9A19-86B39A11E8E9}|testapp\\testapp.csproj|D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\testapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{507A20FF-3E0B-46BD-9A19-86B39A11E8E9}|testapp\\testapp.csproj|solutionrelative:testapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E4127E6-DA84-491C-8183-6B4E0BFCB2D0}|BLL\\BLL.csproj|d:\\git\\idocsapda\\idocsapdafrontoffice\\bll\\settingslogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E4127E6-DA84-491C-8183-6B4E0BFCB2D0}|BLL\\BLL.csproj|solutionrelative:bll\\settingslogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{568A9D70-D3CB-4023-885B-E3FCE81AD8BB}|DAL\\DAL.csproj|d:\\git\\idocsapda\\idocsapdafrontoffice\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -99,10 +111,6 @@
       "RelativeMoniker": "D:0:0:{6F6D0B37-83A9-41F2-A63F-F67706C75E04}|DeclarationOfConsentForm\\DeclarationOfConsentForm.csproj|solutionrelative:declarationofconsentform\\controls\\transparentbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{568A9D70-D3CB-4023-885B-E3FCE81AD8BB}|DAL\\DAL.csproj|d:\\git\\idocsapda\\idocsapdafrontoffice\\dal\\dbsets\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{568A9D70-D3CB-4023-885B-E3FCE81AD8BB}|DAL\\DAL.csproj|solutionrelative:dal\\dbsets\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{157BECF8-509F-40B2-B50F-A88ED99C722C}|DataUploader\\DataUploader.csproj|d:\\git\\idocsapda\\idocsapdafrontoffice\\datauploader\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{157BECF8-509F-40B2-B50F-A88ED99C722C}|DataUploader\\DataUploader.csproj|solutionrelative:datauploader\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -126,7 +134,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 28,
+          "SelectedChildIndex": 30,
           "Children": [
             {
               "$type": "Bookmark",
@@ -138,7 +146,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\GameMasterForm\\Form1.cs",
+              "RelativeDocumentMoniker": "GameMasterForm\\Form1.cs",
+              "ToolTip": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\GameMasterForm\\Form1.cs",
+              "RelativeToolTip": "GameMasterForm\\Form1.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwBUAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T16:13:43.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\GameMasterForm\\Form1.cs",
+              "RelativeDocumentMoniker": "GameMasterForm\\Form1.cs",
+              "ToolTip": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\GameMasterForm\\Form1.cs [Design]",
+              "RelativeToolTip": "GameMasterForm\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T16:13:05.568Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "DeclarationOfConsentLogic.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\BLL\\DeclarationOfConsentLogic.cs",
               "RelativeDocumentMoniker": "BLL\\DeclarationOfConsentLogic.cs",
@@ -151,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "EnglishGameplayerDetails.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DAL\\DbSets\\EnglishGameplayerDetails.cs",
               "RelativeDocumentMoniker": "DAL\\DbSets\\EnglishGameplayerDetails.cs",
@@ -163,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "GameLogic.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\BLL\\GameLogic.cs",
               "RelativeDocumentMoniker": "BLL\\GameLogic.cs",
@@ -176,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "Room.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DAL\\DbSets\\Room.cs",
               "RelativeDocumentMoniker": "DAL\\DbSets\\Room.cs",
@@ -188,7 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DeclarationOfConsentForm\\Form1.cs",
               "RelativeDocumentMoniker": "DeclarationOfConsentForm\\Form1.cs",
@@ -201,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "DTOGameControl.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DeclarationOfConsentForm\\Model\\DTOGameControl.cs",
               "RelativeDocumentMoniker": "DeclarationOfConsentForm\\Model\\DTOGameControl.cs",
@@ -213,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DeclarationOfConsentForm\\Form1.cs",
               "RelativeDocumentMoniker": "DeclarationOfConsentForm\\Form1.cs",
@@ -224,20 +257,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "PlayersUserControl.Designer.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DeclarationOfConsentForm\\UserControls\\PlayersUserControl.Designer.cs",
               "RelativeDocumentMoniker": "DeclarationOfConsentForm\\UserControls\\PlayersUserControl.Designer.cs",
               "ToolTip": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DeclarationOfConsentForm\\UserControls\\PlayersUserControl.Designer.cs",
               "RelativeToolTip": "DeclarationOfConsentForm\\UserControls\\PlayersUserControl.Designer.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAqwLQAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAqwKsAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-14T10:59:04.357Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "TransparentButton.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DeclarationOfConsentForm\\Controls\\TransparentButton.cs",
               "RelativeDocumentMoniker": "DeclarationOfConsentForm\\Controls\\TransparentButton.cs",
@@ -261,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "GamePropertyUserControl.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DeclarationOfConsentForm\\UserControls\\GamePropertyUserControl.cs",
               "RelativeDocumentMoniker": "DeclarationOfConsentForm\\UserControls\\GamePropertyUserControl.cs",
@@ -274,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "testapp.csproj",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\testapp\\testapp.csproj",
               "RelativeDocumentMoniker": "testapp\\testapp.csproj",
@@ -286,7 +319,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "RoomLogic.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\BLL\\RoomLogic.cs",
               "RelativeDocumentMoniker": "BLL\\RoomLogic.cs",
@@ -299,31 +332,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 4,
               "Title": "SettingsLogic.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\BLL\\SettingsLogic.cs",
               "RelativeDocumentMoniker": "BLL\\SettingsLogic.cs",
               "ToolTip": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\BLL\\SettingsLogic.cs",
               "RelativeToolTip": "BLL\\SettingsLogic.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAjwC8AAAATAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAD0AAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T11:44:04.148Z"
+              "WhenOpened": "2024-09-06T11:44:04.148Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 5,
               "Title": "Settings.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DAL\\DbSets\\Settings.cs",
               "RelativeDocumentMoniker": "DAL\\DbSets\\Settings.cs",
               "ToolTip": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DAL\\DbSets\\Settings.cs",
               "RelativeToolTip": "DAL\\DbSets\\Settings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T11:37:12.484Z"
+              "WhenOpened": "2024-09-06T11:37:12.484Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "Mapper.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\BLL\\Map\\Mapper.cs",
               "RelativeDocumentMoniker": "BLL\\Map\\Mapper.cs",
@@ -335,7 +370,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "GoogleSheetContext.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DAL\\GoogleSheetContext.cs",
               "RelativeDocumentMoniker": "DAL\\GoogleSheetContext.cs",
@@ -347,7 +382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DataUploader\\Program.cs",
               "RelativeDocumentMoniker": "DataUploader\\Program.cs",
@@ -359,7 +394,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "DTOPlayer.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\BLL\\Model\\DTOPlayer.cs",
               "RelativeDocumentMoniker": "BLL\\Model\\DTOPlayer.cs",
@@ -371,7 +406,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "PlaceholderTextBox.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DeclarationOfConsentForm\\Controls\\PlaceholderTextBox.cs",
               "RelativeDocumentMoniker": "DeclarationOfConsentForm\\Controls\\PlaceholderTextBox.cs",
@@ -383,7 +418,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "PlayerLogic.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\BLL\\PlayerLogic.cs",
               "RelativeDocumentMoniker": "BLL\\PlayerLogic.cs",
@@ -395,7 +430,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "PlayerDetailsLogic.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\BLL\\PlayerDetailsLogic.cs",
               "RelativeDocumentMoniker": "BLL\\PlayerDetailsLogic.cs",
@@ -408,7 +443,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\testapp\\Form1.cs",
               "RelativeDocumentMoniker": "testapp\\Form1.cs",
@@ -421,7 +456,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "GamePlayerDetails2.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DAL\\DbSets\\GamePlayerDetails2.cs",
               "RelativeDocumentMoniker": "DAL\\DbSets\\GamePlayerDetails2.cs",
@@ -433,7 +468,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DAL\\AppDbContext.cs",
               "RelativeDocumentMoniker": "DAL\\AppDbContext.cs",
@@ -445,7 +480,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "Game.cs",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DAL\\DbSets\\Game.cs",
               "RelativeDocumentMoniker": "DAL\\DbSets\\Game.cs",
@@ -463,14 +498,14 @@
               "RelativeDocumentMoniker": "DeclarationOfConsentForm\\UserControls\\PlayersUserControl.cs",
               "ToolTip": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DeclarationOfConsentForm\\UserControls\\PlayersUserControl.cs",
               "RelativeToolTip": "DeclarationOfConsentForm\\UserControls\\PlayersUserControl.cs",
-              "ViewState": "AgIAAIgBAAAAAAAAAAAiwJIBAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAOUAAAAAAAAAAAAawPEAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-02T14:05:11.968Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "GamePropertyUserControl.cs [Design]",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\DeclarationOfConsentForm\\UserControls\\GamePropertyUserControl.cs",
               "RelativeDocumentMoniker": "DeclarationOfConsentForm\\UserControls\\GamePropertyUserControl.cs",
@@ -482,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\Git\\IdoCsapda\\IdocsapdaFrontOffice\\testapp\\Form1.cs",
               "RelativeDocumentMoniker": "testapp\\Form1.cs",

@@ -28,7 +28,6 @@ namespace DeclarationOfConsentForm.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
             checkBox2 = new CheckBox();
             checkBox1 = new CheckBox();
             l_ZipCode = new Label();
@@ -44,19 +43,10 @@ namespace DeclarationOfConsentForm.UserControls
             tb_BirthDate = new Controls.PlaceholderTextBox();
             tb_ZipCode = new Controls.PlaceholderTextBox();
             pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(1043, 499);
-            button1.Name = "button1";
-            button1.Size = new Size(99, 42);
-            button1.TabIndex = 21;
-            button1.Text = "Mentés";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // checkBox2
             // 
@@ -138,6 +128,7 @@ namespace DeclarationOfConsentForm.UserControls
             // 
             listView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             listView1.BackColor = SystemColors.ControlDark;
+            listView1.Cursor = Cursors.Hand;
             listView1.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
             listView1.Location = new Point(11, 0);
             listView1.MultiSelect = false;
@@ -234,10 +225,23 @@ namespace DeclarationOfConsentForm.UserControls
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            pictureBox2.Cursor = Cursors.Hand;
+            pictureBox2.Image = Properties.Resources.hand_drawn_cartoon_design_button_5504519;
+            pictureBox2.Location = new Point(1076, 475);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(66, 66);
+            pictureBox2.TabIndex = 38;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += button1_Click;
+            // 
             // PlayersUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(tb_ZipCode);
             Controls.Add(tb_BirthDate);
@@ -247,7 +251,6 @@ namespace DeclarationOfConsentForm.UserControls
             Controls.Add(l_BirthYear);
             Controls.Add(linkLabel1);
             Controls.Add(listView1);
-            Controls.Add(button1);
             Controls.Add(checkBox2);
             Controls.Add(checkBox1);
             Controls.Add(l_ZipCode);
@@ -257,6 +260,7 @@ namespace DeclarationOfConsentForm.UserControls
             Name = "PlayersUserControl";
             Size = new Size(1145, 544);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -280,8 +284,6 @@ namespace DeclarationOfConsentForm.UserControls
                 tb_ZipCode.PlaceholderText = "e.g.: 1075";
             }
         }
-
-        private Button button1;
         private CheckBox checkBox2;
         private CheckBox checkBox1;
         private Label l_ZipCode;
@@ -297,5 +299,6 @@ namespace DeclarationOfConsentForm.UserControls
         private Controls.PlaceholderTextBox tb_BirthDate;
         private Controls.PlaceholderTextBox tb_ZipCode;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

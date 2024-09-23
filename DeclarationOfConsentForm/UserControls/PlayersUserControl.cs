@@ -13,6 +13,7 @@ namespace DeclarationOfConsentForm.UserControls
     {
         private int gameId;
         private int selectedItem = 0;
+        private Font previousFont = null;
 
         private BindingList<DTOPlayer> Players = new BindingList<DTOPlayer>();
 
@@ -77,6 +78,38 @@ namespace DeclarationOfConsentForm.UserControls
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Ellenőrizzük, hogy van-e kijelölt elem
+            if (listView1.SelectedItems.Count > 0)
+            {
+                // Kijelölt elem
+                ListViewItem selectedItem = listView1.SelectedItems[0];
+
+                // Ha van előző kijelölt elem, állítsuk vissza az eredeti fontjára
+                if (previousFont != null)
+                {
+                    // Keresd meg az előző kijelölt elemet és állítsd vissza
+                    foreach (ListViewItem item in listView1.Items)
+                    {
+                        if (item.Font != previousFont) // Csak az előzőt állítsuk vissza
+                        {
+                            item.Font = previousFont;
+                        }
+                    }
+                }
+
+                // Megőrizzük az aktuális kijelölt elem fontját
+                previousFont = selectedItem.Font;
+
+                // Új betűméret +2 ponttal
+                float newSize = previousFont.Size + 4;
+
+                // Új font létrehozása a meglévő stílusokkal
+                Font newFont = new Font(previousFont.FontFamily, newSize, previousFont.Style);
+
+                // Kijelölt elem font beállítása
+                selectedItem.Font = newFont;
+            }
+
             if (this.listView1.SelectedItems.Count > 0)
             {
                 // Aktuális játékos adatainak mentése
@@ -198,13 +231,15 @@ namespace DeclarationOfConsentForm.UserControls
                 this.listView1.Items[selectedItem].BackColor = Color.LightGreen;
             }
 
-            this.button1.Enabled = true;
+            this.pictureBox2.Visible = true;
+            this.pictureBox1.Visible = false;
             foreach (var item in this.Players)
             {
                 //TODO E-mail validáció üres stringre
                 if (!item.IsValid)
                 {
-                    this.button1.Enabled = false;
+                    this.pictureBox2.Visible = false;
+                    this.pictureBox1.Visible = true;
                 }
             }
         }
@@ -289,30 +324,61 @@ namespace DeclarationOfConsentForm.UserControls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Players
+            if (RoomLogic.IsEnglish)
+            {
+                Players
+                .Where(_ => _.Email == "e.g.: example@example.com")
+                .ToList()
+                .ForEach(_ => _.Email = "");
+                PlayerLogic.SavePlayers(Players
+                                            .Where(_ => _.GameId > int.Parse(SettingsLogic.GetSetting("EnglishLastRow")))
+                                            .OrderBy(_ => _.GameId)
+                                            .ToList());
+
+                // Indítjuk a 2 perces időzítőt
+                System.Timers.Timer timer = new System.Timers.Timer(120000); // 120 000 ms = 2 perc
+                timer.Elapsed += Timer_Elapsed;
+                timer.AutoReset = false; // Az időzítő csak egyszer fusson le
+                timer.Start();
+
+                // Megjelenítjük a MessageBox-ot
+                DialogResult result = CustomMessageBox.Show("Thank You!\nYour game master will be coming soon!", "Save Success!");
+
+                // Ha a felhasználó az "OK" gombra kattint, leállítjuk az időzítőt és meghívjuk a Method1 metódust
+                if (result == DialogResult.OK)
+                {
+                    timer.Stop();
+                    EventHandler();
+                }
+            }
+            else
+            {
+                Players
                 .Where(_ => _.Email == "pl.: pelda@example.com")
                 .ToList()
                 .ForEach(_ => _.Email = "");
-            PlayerLogic.SavePlayers(Players
-                                        .Where(_ => _.GameId > int.Parse(SettingsLogic.GetSetting("LastRow")))
-                                        .OrderBy(_ => _.GameId)
-                                        .ToList());
+                PlayerLogic.SavePlayers(Players
+                                            .Where(_ => _.GameId > int.Parse(SettingsLogic.GetSetting("LastRow")))
+                                            .OrderBy(_ => _.GameId)
+                                            .ToList());
 
-            // Indítjuk a 2 perces időzítőt
-            System.Timers.Timer timer = new System.Timers.Timer(120000); // 120 000 ms = 2 perc
-            timer.Elapsed += Timer_Elapsed;
-            timer.AutoReset = false; // Az időzítő csak egyszer fusson le
-            timer.Start();
+                // Indítjuk a 2 perces időzítőt
+                System.Timers.Timer timer = new System.Timers.Timer(120000); // 120 000 ms = 2 perc
+                timer.Elapsed += Timer_Elapsed;
+                timer.AutoReset = false; // Az időzítő csak egyszer fusson le
+                timer.Start();
 
-            // Megjelenítjük a MessageBox-ot
-            DialogResult result = CustomMessageBox.Show("Köszönjük!\nA játékmesteretek hamarosan jelentkezik!", "Mentés kész!");
+                // Megjelenítjük a MessageBox-ot
+                DialogResult result = CustomMessageBox.Show("Köszönjük!\nA játékmesteretek hamarosan jelentkezik!", "Mentés kész!");
 
-            // Ha a felhasználó az "OK" gombra kattint, leállítjuk az időzítőt és meghívjuk a Method1 metódust
-            if (result == DialogResult.OK)
-            {
-                timer.Stop();
-                EventHandler();
+                // Ha a felhasználó az "OK" gombra kattint, leállítjuk az időzítőt és meghívjuk a Method1 metódust
+                if (result == DialogResult.OK)
+                {
+                    timer.Stop();
+                    EventHandler();
+                }
             }
+            
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
