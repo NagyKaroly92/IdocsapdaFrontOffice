@@ -418,6 +418,7 @@ namespace DeclarationOfConsentForm.UserControls
 
             // Frissítjük a validációt és a színt a következő játékosnál is
             Validate(this.Players[listView1.SelectedItems[0].Index]);
+            listBox.Invalidate();
         }
 
         private void SetLabelsToEnglish()
@@ -474,8 +475,9 @@ namespace DeclarationOfConsentForm.UserControls
                 e.ItemHeight = listBox.Font.Height + 4; // Normál magasság
             }
         }
-        
+
         // DrawItem eseménykezelő az elemek egyedi megjelenítéséhez
+        /*
         private void listBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (e.Index < 0) return;
@@ -498,25 +500,33 @@ namespace DeclarationOfConsentForm.UserControls
                 e.Graphics.FillRectangle(Brushes.Coral, e.Bounds);
             }
 
+            // Szöveg magasságának meghatározása
+            SizeF textSize = e.Graphics.MeasureString(player.Name, e.Font);
+            float textY = e.Bounds.Y + (e.Bounds.Height - textSize.Height) / 2; // Középre igazítás
+
             // Szöveg megjelenítése: ha ki van jelölve, nagyobb betűméret, különben normál
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
             {
                 // Kijelölt elem nagyobb betűmérettel
                 using (Font selectedFont = new Font(e.Font.FontFamily, e.Font.Size + 4, FontStyle.Bold))
                 {
-                    e.Graphics.DrawString(listBox.Items[e.Index].ToString(), selectedFont, Brushes.Black, e.Bounds);
+                    e.Graphics.DrawString(listBox.Items[e.Index].ToString(), selectedFont, Brushes.Black, e.Bounds.X, textY);
                 }
             }
             else
             {
                 // Nem kijelölt elem normál betűmérettel
-                e.Graphics.DrawString(listBox.Items[e.Index].ToString(), defaultFont, Brushes.Black, e.Bounds);
+                e.Graphics.DrawString(listBox.Items[e.Index].ToString(), defaultFont, Brushes.Black, e.Bounds.X, textY);
             }
 
+            using (Pen separatorPen = new Pen(Color.Gray))
+            {
+                e.Graphics.DrawLine(separatorPen, e.Bounds.X, e.Bounds.Bottom, e.Bounds.Right, e.Bounds.Bottom);
+            }
             // Keret rajzolása az elem köré
             e.DrawFocusRectangle();
-        }
-        /*
+        }*/
+
         private void listBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (e.Index < 0) return;
@@ -525,16 +535,20 @@ namespace DeclarationOfConsentForm.UserControls
             DTOPlayer player = Players[e.Index];
 
             // Háttér szín beállítása
-            if (listBox.SelectedIndex == e.Index)
+            if (player.IsValid)
             {
-                // Kijelölt elem - zöld háttér
+                // Érvényes játékos - zöld háttér
                 e.Graphics.FillRectangle(Brushes.LightGreen, e.Bounds);
             }
             else
             {
-                // Nem kijelölt elem - piros háttér
+                // Nem érvényes játékos - piros háttér
                 e.Graphics.FillRectangle(Brushes.Coral, e.Bounds);
             }
+
+            // Szöveg magasságának meghatározása
+            SizeF textSize = e.Graphics.MeasureString(listBox.Items[e.Index].ToString(), e.Font);
+            float textY = e.Bounds.Y + (e.Bounds.Height - textSize.Height) / 2; // Középre igazítás
 
             // Szöveg megjelenítése: ha ki van jelölve, nagyobb betűméret, különben normál
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
@@ -542,18 +556,18 @@ namespace DeclarationOfConsentForm.UserControls
                 // Kijelölt elem nagyobb betűmérettel
                 using (Font selectedFont = new Font(e.Font.FontFamily, e.Font.Size + 4, FontStyle.Bold))
                 {
-                    e.Graphics.DrawString(player.Name, selectedFont, Brushes.Black, e.Bounds);
+                    e.Graphics.DrawString(listBox.Items[e.Index].ToString(), selectedFont, Brushes.Black, e.Bounds.X, textY);
                 }
             }
             else
             {
                 // Nem kijelölt elem normál betűmérettel
-                e.Graphics.DrawString(player.Name, e.Font, Brushes.Black, e.Bounds);
+                e.Graphics.DrawString(listBox.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds.X, textY);
             }
 
             // Keret rajzolása az elem köré
             e.DrawFocusRectangle();
-        }*/
+        }
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
