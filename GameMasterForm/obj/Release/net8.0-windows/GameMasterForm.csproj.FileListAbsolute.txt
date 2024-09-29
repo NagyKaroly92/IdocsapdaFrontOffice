@@ -149,3 +149,10 @@ D:\Git\IdoCsapda\IdocsapdaFrontOffice\GameMasterForm\obj\Release\net8.0-windows\
 D:\Git\IdoCsapda\IdocsapdaFrontOffice\GameMasterForm\obj\Release\net8.0-windows\GameMasterForm.pdb
 D:\Git\IdoCsapda\IdocsapdaFrontOffice\GameMasterForm\obj\Release\net8.0-windows\GameMasterForm.genruntimeconfig.cache
 D:\Git\IdoCsapda\IdocsapdaFrontOffice\GameMasterForm\obj\Release\net8.0-windows\ref\GameMasterForm.dll
+D:\Git\IdoCsapda\IdocsapdaFrontOffice\GameMasterForm\bin\Release\net8.0-windows\Google.Apis.dll
+D:\Git\IdoCsapda\IdocsapdaFrontOffice\GameMasterForm\bin\Release\net8.0-windows\Google.Apis.Auth.dll
+D:\Git\IdoCsapda\IdocsapdaFrontOffice\GameMasterForm\bin\Release\net8.0-windows\Google.Apis.Core.dll
+D:\Git\IdoCsapda\IdocsapdaFrontOffice\GameMasterForm\bin\Release\net8.0-windows\Google.Apis.Sheets.v4.dll
+D:\Git\IdoCsapda\IdocsapdaFrontOffice\GameMasterForm\bin\Release\net8.0-windows\Newtonsoft.Json.dll
+D:\Git\IdoCsapda\IdocsapdaFrontOffice\GameMasterForm\bin\Release\net8.0-windows\System.Management.dll
+D:\Git\IdoCsapda\IdocsapdaFrontOffice\GameMasterForm\bin\Release\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll

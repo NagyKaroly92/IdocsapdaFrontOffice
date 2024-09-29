@@ -44,6 +44,7 @@ namespace DeclarationOfConsentForm.UserControls
             tb_ZipCode = new Controls.PlaceholderTextBox();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            listBox = new ListBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -56,9 +57,9 @@ namespace DeclarationOfConsentForm.UserControls
             checkBox2.ForeColor = SystemColors.ControlLightLight;
             checkBox2.Location = new Point(200, 317);
             checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(633, 32);
+            checkBox2.Size = new Size(618, 32);
             checkBox2.TabIndex = 20;
-            checkBox2.Text = "Az                                                   megkaptam és tudomásul vettem.";
+            checkBox2.Text = "Az                                                megkaptam és tudomásul vettem.";
             checkBox2.UseVisualStyleBackColor = false;
             checkBox2.CheckedChanged += checkBox2_CheckedChanged;
             // 
@@ -144,7 +145,7 @@ namespace DeclarationOfConsentForm.UserControls
             // 
             linkLabel1.AutoSize = true;
             linkLabel1.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
-            linkLabel1.Location = new Point(251, 317);
+            linkLabel1.Location = new Point(261, 317);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(252, 28);
             linkLabel1.TabIndex = 25;
@@ -220,7 +221,7 @@ namespace DeclarationOfConsentForm.UserControls
             pictureBox1.Image = Properties.Resources.hand_drawn_cartoon_design_button_5504519;
             pictureBox1.Location = new Point(719, 375);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(66, 66);
+            pictureBox1.Size = new Size(102, 101);
             pictureBox1.TabIndex = 37;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
@@ -230,17 +231,30 @@ namespace DeclarationOfConsentForm.UserControls
             pictureBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.hand_drawn_cartoon_design_button_5504519;
-            pictureBox2.Location = new Point(1076, 475);
+            pictureBox2.Location = new Point(1026, 437);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(66, 66);
+            pictureBox2.Size = new Size(106, 104);
             pictureBox2.TabIndex = 38;
             pictureBox2.TabStop = false;
             pictureBox2.Click += button1_Click;
+            // 
+            // listBox
+            // 
+            listBox.BackColor = SystemColors.Menu;
+            listBox.DrawMode = DrawMode.OwnerDrawFixed;
+            listBox.FormattingEnabled = true;
+            listBox.ItemHeight = 100;
+            listBox.Location = new Point(894, 27);
+            listBox.Name = "listBox";
+            listBox.Size = new Size(215, 404);
+            listBox.TabIndex = 39;
+            listBox.DrawItem += listBox_DrawItem;
             // 
             // PlayersUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(listBox);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(tb_ZipCode);
@@ -258,7 +272,7 @@ namespace DeclarationOfConsentForm.UserControls
             Controls.Add(l_Email);
             Controls.Add(l_Name);
             Name = "PlayersUserControl";
-            Size = new Size(1145, 544);
+            Size = new Size(1149, 544);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -300,5 +314,6 @@ namespace DeclarationOfConsentForm.UserControls
         private Controls.PlaceholderTextBox tb_ZipCode;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private ListBox listBox;
     }
 }

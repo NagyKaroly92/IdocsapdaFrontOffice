@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GameMasterForm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd246f0e73e2d30fbbc0bfca4832f2d0fdaca4e5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26f6e8bfc8a9baf64109da7c17d3174113bda1d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("GameMasterForm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GameMasterForm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

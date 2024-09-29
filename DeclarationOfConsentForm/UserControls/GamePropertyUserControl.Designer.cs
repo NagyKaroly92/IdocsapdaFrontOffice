@@ -34,7 +34,8 @@
             dateTimePicker1 = new DateTimePicker();
             label4 = new Label();
             comboBox2 = new ComboBox();
-            button1 = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // comboBox1
@@ -110,24 +111,23 @@
             comboBox2.Size = new Size(399, 28);
             comboBox2.TabIndex = 6;
             // 
-            // button1
+            // pictureBox1
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Cursor = Cursors.Hand;
-            button1.Image = Properties.Resources.illust58_6092_01;
-            button1.Location = new Point(632, 396);
-            button1.Name = "button1";
-            button1.Size = new Size(45, 45);
-            button1.TabIndex = 8;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            pictureBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Image = Properties.Resources.hand_drawn_cartoon_design_button_5504519;
+            pictureBox1.Location = new Point(575, 343);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(105, 89);
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += button1_Click;
             // 
             // GamePropertyUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
+            Controls.Add(pictureBox1);
             Controls.Add(label4);
             Controls.Add(comboBox2);
             Controls.Add(dateTimePicker1);
@@ -137,6 +137,7 @@
             Name = "GamePropertyUserControl";
             Size = new Size(695, 456);
             Load += GamePropertyUserControl_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -148,6 +149,6 @@
         private DateTimePicker dateTimePicker1;
         private Label label4;
         private ComboBox comboBox2;
-        private Button button1;
+        private PictureBox pictureBox1;
     }
 }

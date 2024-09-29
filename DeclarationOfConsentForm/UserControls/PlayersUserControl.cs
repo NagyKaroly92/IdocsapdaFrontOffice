@@ -31,11 +31,18 @@ namespace DeclarationOfConsentForm.UserControls
             this.Dock = DockStyle.Fill;
             this.gameId = game.GameId;
 
+            this.listBox.DrawMode = DrawMode.OwnerDrawFixed; // Egyéni rajzolási mód bekapcsolása
+
+            this.listBox.MeasureItem += listBox_MeasureItem; // Sor magasság mérése esemény
+            listBox.SelectedIndexChanged += listBox_SelectedIndexChanged; // Regisztráljuk a SelectedIndexChanged eseményt
+
             if (RoomLogic.IsEnglish)
             {
                 SetLabelsToEnglish();
                 for (int i = 1; i <= game.PlayerNumbers; i++)
                 {
+                    this.listBox.Items.Add($"Player {i}");
+
                     this.listView1.Items.Add($"Player {i}");
                     this.listView1.Items[i - 1].BackColor = Color.Coral;
 
@@ -46,15 +53,17 @@ namespace DeclarationOfConsentForm.UserControls
                             IsValid = false
                         });
                 }
-                
+
                 this.listView1.SelectedItems.Clear();
                 this.listView1.Items[selectedItem].Selected = true;
-                
+
             }
             else
             {
                 for (int i = 1; i <= game.PlayerNumbers; i++)
                 {
+                    this.listBox.Items.Add($"{i}. Játékos");
+
                     this.listView1.Items.Add($"{i}. Játékos");
                     this.listView1.Items[i - 1].BackColor = Color.Coral;
 
@@ -273,41 +282,6 @@ namespace DeclarationOfConsentForm.UserControls
             browserForm.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            int a = 0;
-            if (this.listView1.SelectedItems.Count > 0)
-            {
-                // Aktuális játékos adatainak frissítése
-                this.Players[selectedItem].Name = this.tb_Name.Text;
-                this.Players[selectedItem].Email = this.tb_Email.Text;
-                this.Players[selectedItem].BirthDate = tb_BirthDate.Text;
-                this.Players[selectedItem].BirthYear = tb_BirthYear.Text;
-                if (!string.IsNullOrEmpty(this.tb_ZipCode.Text))
-                {
-                    this.Players[selectedItem].ZipCode = int.Parse(this.tb_ZipCode.Text);
-                }
-                this.Players[selectedItem].Accept1 = this.checkBox1.Checked;
-                this.Players[selectedItem].Accept2 = this.checkBox2.Checked;
-
-                // Frissítjük a validációt és a színt az aktuális játékosnál
-                Validate(this.Players[selectedItem]);
-
-                // Újrarajzoljuk az adott ListView elemet, hogy a színváltozás látható legyen
-                this.listView1.Items[selectedItem].BackColor = this.Players[selectedItem].IsValid ? Color.LightGreen : Color.Coral;
-                this.listView1.Items[selectedItem].EnsureVisible();
-
-                // Ha van még további játékos, akkor váltsunk a következőre
-                if (listView1.SelectedItems[0].Index < listView1.Items.Count - 1)
-                {
-                    listView1.SelectedItems.Clear();
-                    listView1.Items[selectedItem + 1].Selected = true;
-                }
-
-                // Frissítjük a validációt és a színt a következő játékosnál is
-                Validate(this.Players[listView1.SelectedItems[0].Index]);
-            }
-        }
         private bool ContainsDiacritics(string text)
         {
             if (string.IsNullOrEmpty(text))
@@ -378,7 +352,7 @@ namespace DeclarationOfConsentForm.UserControls
                     EventHandler();
                 }
             }
-            
+
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -400,41 +374,50 @@ namespace DeclarationOfConsentForm.UserControls
         {
             Validate(this.Players[listView1.SelectedItems[0].Index]);
         }
-
+        
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            int a = 0;
-            if (this.listView1.SelectedItems.Count > 0)
+            // Adatok mentése
+            SavePlayerData(selectedItem);
+
+            // Frissítjük az aktuális játékos adatait
+            this.Players[selectedItem].Name = this.tb_Name.Text;
+            this.Players[selectedItem].Email = this.tb_Email.Text;
+            this.Players[selectedItem].BirthDate = tb_BirthDate.Text;
+            this.Players[selectedItem].BirthYear = tb_BirthYear.Text;
+
+            if (!string.IsNullOrEmpty(this.tb_ZipCode.Text) && this.tb_ZipCode.Text != this.tb_ZipCode.PlaceholderText)
             {
-                // Aktuális játékos adatainak frissítése
-                this.Players[selectedItem].Name = this.tb_Name.Text;
-                this.Players[selectedItem].Email = this.tb_Email.Text;
-                this.Players[selectedItem].BirthDate = tb_BirthDate.Text;
-                this.Players[selectedItem].BirthYear = tb_BirthYear.Text;
-                if (!string.IsNullOrEmpty(this.tb_ZipCode.Text) && this.tb_ZipCode.Text != this.tb_ZipCode.PlaceholderText)
-                {
-                    this.Players[selectedItem].ZipCode = int.Parse(this.tb_ZipCode.Text);
-                }
-                this.Players[selectedItem].Accept1 = this.checkBox1.Checked;
-                this.Players[selectedItem].Accept2 = this.checkBox2.Checked;
-
-                // Frissítjük a validációt és a színt az aktuális játékosnál
-                Validate(this.Players[selectedItem]);
-
-                // Újrarajzoljuk az adott ListView elemet, hogy a színváltozás látható legyen
-                this.listView1.Items[selectedItem].BackColor = this.Players[selectedItem].IsValid ? Color.LightGreen : Color.Coral;
-                this.listView1.Items[selectedItem].EnsureVisible();
-
-                // Ha van még további játékos, akkor váltsunk a következőre
-                if (listView1.SelectedItems[0].Index < listView1.Items.Count - 1)
-                {
-                    listView1.SelectedItems.Clear();
-                    listView1.Items[selectedItem + 1].Selected = true;
-                }
-
-                // Frissítjük a validációt és a színt a következő játékosnál is
-                Validate(this.Players[listView1.SelectedItems[0].Index]);
+                this.Players[selectedItem].ZipCode = int.Parse(this.tb_ZipCode.Text);
             }
+            this.Players[selectedItem].Accept1 = this.checkBox1.Checked;
+            this.Players[selectedItem].Accept2 = this.checkBox2.Checked;
+
+            // Ellenőrizzük az összes játékost és frissítjük a színeket
+            foreach (var player in Players)
+            {
+                Validate(player);  // Validálás
+            }
+
+            // Frissítjük a színeket a ListView elemeknél
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                listView1.Items[i].BackColor = Players[i].IsValid ? Color.LightGreen : Color.Coral;
+            }
+
+            // Ha van még további játékos, akkor váltsunk a következőre
+            if (listView1.SelectedItems[0].Index < listView1.Items.Count - 1)
+            {
+                listView1.SelectedItems.Clear();
+                listView1.Items[selectedItem + 1].Selected = true;
+
+                // Ismét kijelöljük a ListBox elemet
+                listBox.SelectedItems.Clear();
+                listBox.SelectedItems.Add(listBox.Items[selectedItem]); // A következő elem kijelölése
+            }
+
+            // Frissítjük a validációt és a színt a következő játékosnál is
+            Validate(this.Players[listView1.SelectedItems[0].Index]);
         }
 
         private void SetLabelsToEnglish()
@@ -471,5 +454,110 @@ namespace DeclarationOfConsentForm.UserControls
             linkLabel1.Location = new Point(585, 317);
         }
 
+        // MeasureItem eseménykezelő a dinamikus sor magassághoz
+        private void listBox_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            // Kiválasztjuk a betűméretet a kijelöltség alapján
+            if (listBox.SelectedIndex == e.Index)
+            {
+                // Kijelölt elem esetén nagyobb betűméret
+                using (Font selectedFont = new Font(listBox.Font.FontFamily, listBox.Font.Size + 4, FontStyle.Bold))
+                {
+                    e.ItemHeight = selectedFont.Height + 10; // Magasság a betűmérethez igazítva
+                }
+            }
+            else
+            {
+                // Nem kijelölt elem normál magasság
+                e.ItemHeight = listBox.Font.Height + 4; // Normál magasság
+            }
+        }
+        
+        // DrawItem eseménykezelő az elemek egyedi megjelenítéséhez
+        private void listBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            // Alapértelmezett betűméret
+            Font defaultFont = e.Font;
+
+            // Megkapjuk a játékos objektumot a listában lévő index alapján
+            DTOPlayer player = Players[e.Index];
+
+            // Háttér szín beállítása
+            if (player.IsValid)
+            {
+                // Érvényes játékos - zöld háttér
+                e.Graphics.FillRectangle(Brushes.LightGreen, e.Bounds);
+            }
+            else
+            {
+                // Nem érvényes játékos - piros háttér
+                e.Graphics.FillRectangle(Brushes.Coral, e.Bounds);
+            }
+
+            // Szöveg megjelenítése: ha ki van jelölve, nagyobb betűméret, különben normál
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                // Kijelölt elem nagyobb betűmérettel
+                using (Font selectedFont = new Font(e.Font.FontFamily, e.Font.Size + 4, FontStyle.Bold))
+                {
+                    e.Graphics.DrawString(listBox.Items[e.Index].ToString(), selectedFont, Brushes.Black, e.Bounds);
+                }
+            }
+            else
+            {
+                // Nem kijelölt elem normál betűmérettel
+                e.Graphics.DrawString(listBox.Items[e.Index].ToString(), defaultFont, Brushes.Black, e.Bounds);
+            }
+
+            // Keret rajzolása az elem köré
+            e.DrawFocusRectangle();
+        }
+        /*
+        private void listBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            // Megkapjuk a játékos objektumot a listában lévő index alapján
+            DTOPlayer player = Players[e.Index];
+
+            // Háttér szín beállítása
+            if (listBox.SelectedIndex == e.Index)
+            {
+                // Kijelölt elem - zöld háttér
+                e.Graphics.FillRectangle(Brushes.LightGreen, e.Bounds);
+            }
+            else
+            {
+                // Nem kijelölt elem - piros háttér
+                e.Graphics.FillRectangle(Brushes.Coral, e.Bounds);
+            }
+
+            // Szöveg megjelenítése: ha ki van jelölve, nagyobb betűméret, különben normál
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                // Kijelölt elem nagyobb betűmérettel
+                using (Font selectedFont = new Font(e.Font.FontFamily, e.Font.Size + 4, FontStyle.Bold))
+                {
+                    e.Graphics.DrawString(player.Name, selectedFont, Brushes.Black, e.Bounds);
+                }
+            }
+            else
+            {
+                // Nem kijelölt elem normál betűmérettel
+                e.Graphics.DrawString(player.Name, e.Font, Brushes.Black, e.Bounds);
+            }
+
+            // Keret rajzolása az elem köré
+            e.DrawFocusRectangle();
+        }*/
+
+        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //listBox.Invalidate(); // Frissítjük a ListBox-t, hogy a színek frissüljenek
+        }
     }
 }

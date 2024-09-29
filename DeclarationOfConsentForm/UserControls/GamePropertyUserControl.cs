@@ -48,7 +48,7 @@ namespace DeclarationOfConsentForm.UserControls
             }
         }
         private void label1_Paint(object sender, PaintEventArgs e)
-        {
+        {/*
             Label lbl = sender as Label;
             string text = lbl.Text;
             Font font = lbl.Font;
@@ -65,6 +65,6 @@ namespace DeclarationOfConsentForm.UserControls
 
             // Ezután rajzoljuk meg a szöveget fehér színnel.
             e.Graphics.DrawString(text, font, Brushes.White, lbl.ClientRectangle.X, lbl.ClientRectangle.Y);
-        }
+        */}
     }
 }
