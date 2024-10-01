@@ -34,7 +34,6 @@ namespace DeclarationOfConsentForm.UserControls
             l_BirthDate = new Label();
             l_Email = new Label();
             l_Name = new Label();
-            listView1 = new ListView();
             linkLabel1 = new LinkLabel();
             l_BirthYear = new Label();
             tb_Name = new Controls.PlaceholderTextBox();
@@ -57,9 +56,9 @@ namespace DeclarationOfConsentForm.UserControls
             checkBox2.ForeColor = SystemColors.ControlLightLight;
             checkBox2.Location = new Point(200, 317);
             checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(618, 32);
+            checkBox2.Size = new Size(608, 32);
             checkBox2.TabIndex = 20;
-            checkBox2.Text = "Az                                                megkaptam és tudomásul vettem.";
+            checkBox2.Text = "Az                                              megkaptam és tudomásul vettem.";
             checkBox2.UseVisualStyleBackColor = false;
             checkBox2.CheckedChanged += checkBox2_CheckedChanged;
             // 
@@ -125,26 +124,11 @@ namespace DeclarationOfConsentForm.UserControls
             l_Name.TabIndex = 11;
             l_Name.Text = "Név";
             // 
-            // listView1
-            // 
-            listView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            listView1.BackColor = SystemColors.ControlDark;
-            listView1.Cursor = Cursors.Hand;
-            listView1.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
-            listView1.Location = new Point(11, 0);
-            listView1.MultiSelect = false;
-            listView1.Name = "listView1";
-            listView1.Scrollable = false;
-            listView1.Size = new Size(164, 531);
-            listView1.TabIndex = 22;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Tile;
-            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
-            // 
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
             linkLabel1.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
+            linkLabel1.LinkColor = Color.FromArgb(192, 192, 255);
             linkLabel1.Location = new Point(261, 317);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(252, 28);
@@ -240,15 +224,17 @@ namespace DeclarationOfConsentForm.UserControls
             // 
             // listBox
             // 
+            listBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             listBox.BackColor = SystemColors.Menu;
             listBox.DrawMode = DrawMode.OwnerDrawFixed;
             listBox.FormattingEnabled = true;
-            listBox.ItemHeight = 100;
-            listBox.Location = new Point(894, 27);
+            listBox.ItemHeight = 75;
+            listBox.Location = new Point(3, 3);
             listBox.Name = "listBox";
-            listBox.Size = new Size(215, 404);
+            listBox.Size = new Size(191, 529);
             listBox.TabIndex = 39;
             listBox.DrawItem += listBox_DrawItem;
+            listBox.SelectedIndexChanged += listBox_SelectedIndexChanged;
             // 
             // PlayersUserControl
             // 
@@ -264,7 +250,6 @@ namespace DeclarationOfConsentForm.UserControls
             Controls.Add(tb_Name);
             Controls.Add(l_BirthYear);
             Controls.Add(linkLabel1);
-            Controls.Add(listView1);
             Controls.Add(checkBox2);
             Controls.Add(checkBox1);
             Controls.Add(l_ZipCode);
@@ -304,7 +289,6 @@ namespace DeclarationOfConsentForm.UserControls
         private Label l_BirthDate;
         private Label l_Email;
         private Label l_Name;
-        private ListView listView1;
         private LinkLabel linkLabel1;
         private Label l_BirthYear;
         private Controls.PlaceholderTextBox tb_Name;
