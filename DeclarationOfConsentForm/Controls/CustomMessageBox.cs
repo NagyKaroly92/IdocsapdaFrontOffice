@@ -18,6 +18,14 @@ namespace DeclarationOfConsentForm.Controls
         {
             InitializeComponent();
 
+            // Ablak méretének növelése
+            this.Size = new Size(600, 300); // 3x nagyobb méret az alapértelmezetthez képest
+            this.StartPosition = FormStartPosition.CenterScreen; // Középre igazítás
+
+            // Betűtípus méretének növelése
+            this.label1.Font = new Font(this.label1.Font.FontFamily, this.label1.Font.Size * 3, FontStyle.Regular); // 3x nagyobb betűméret
+            this.okButton.Font = new Font(this.okButton.Font.FontFamily, this.okButton.Font.Size * 3, FontStyle.Regular);
+
             // Indítjuk a 2 perces időzítőt
             timer = new System.Timers.Timer(120000); // 120 000 ms = 2 perc
             timer.Elapsed += Timer_Elapsed;

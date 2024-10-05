@@ -21,11 +21,27 @@ namespace DeclarationOfConsentForm.UserControls
             {
                 this.comboBox2.Items.Add(i);
             }
+
+            for (int i = 0; i <= 23; i++)
+            {
+                this.cb_Time1.Items.Add(i);
+            }
+
+            for (int i = 0; i < 60; i+=15)
+            {
+                this.cb_Time2.Items.Add(i);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GameLogic.SaveGame(new BLL.Model.DTOGame() { PlayerNumber = int.Parse(this.comboBox2.Text), RoomName = this.comboBox1.Text, Time = this.dateTimePicker1.Value });
+            int hour = int.Parse(this.cb_Time1.Text);
+            int minute = int.Parse(this.cb_Time2.Text);
+
+            // Új DateTime létrehozása a mai nappal, de megadott órával és perccel
+            DateTime dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, hour, minute, 0);
+
+            GameLogic.SaveGame(new BLL.Model.DTOGame() { PlayerNumber = int.Parse(this.comboBox2.Text), RoomName = this.comboBox1.Text, Time = dateTime/*this.dateTimePicker1.Value*/ });
             ButtonClicked?.Invoke(new DTOGameControl() { GameId = GameLogic.GetLastId(), PlayerNumbers = int.Parse(this.comboBox2.Text), IsEnglish = RoomLogic.IsEnglish }, EventArgs.Empty);
         }
         private void OnIsEnglishChanged(object sender, bool isEnglish)

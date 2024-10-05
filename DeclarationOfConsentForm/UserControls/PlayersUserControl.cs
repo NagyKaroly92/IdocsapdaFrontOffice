@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Timers;
+using System.Windows.Forms;
 
 namespace DeclarationOfConsentForm.UserControls
 {
@@ -47,6 +48,8 @@ namespace DeclarationOfConsentForm.UserControls
                         new DTOPlayer
                         {
                             GameId = game.GameId,
+                            Accept1 = true,
+                            Accept2 = true,
                             IsValid = false
                         });
                 }
@@ -73,14 +76,11 @@ namespace DeclarationOfConsentForm.UserControls
                 }
             }
 
-            //this.listView1.SelectedItems.Clear();
-            //this.listView1.Items[selectedItem].Selected = true;
-
             if (RoomLogic.IsEnglish)
             {
                 SetLabelsToEnglish();
             }
-
+            UpdateListBoxHeight();
             listBox.SelectedItems.Add(listBox.Items[0]);
         }
         
@@ -90,7 +90,7 @@ namespace DeclarationOfConsentForm.UserControls
 
             // Aktuális játékos adatainak mentése
             this.Players[index].Name = string.IsNullOrWhiteSpace(tb_Name.Text) || tb_Name.Text == tb_Name.PlaceholderText ? string.Empty : tb_Name.Text;
-            this.Players[index].Email = string.IsNullOrWhiteSpace(tb_Email.Text) || tb_Email.Text == tb_Email.PlaceholderText ? string.Empty : tb_Email.Text;
+            this.Players[index].Email = String.Format("{0}@{1}", this.tb_Email1.Text, this.tb_Email2.Text);//string.IsNullOrWhiteSpace(tb_Email.Text) || tb_Email.Text == tb_Email.PlaceholderText ? string.Empty : tb_Email.Text;
             this.Players[index].BirthDate = string.IsNullOrWhiteSpace(tb_BirthDate.Text) || tb_BirthDate.Text == tb_BirthDate.PlaceholderText ? string.Empty : tb_BirthDate.Text;
             this.Players[index].BirthYear = string.IsNullOrWhiteSpace(tb_BirthYear.Text) || tb_BirthYear.Text == tb_BirthYear.PlaceholderText ? string.Empty : tb_BirthYear.Text;
 
@@ -115,7 +115,18 @@ namespace DeclarationOfConsentForm.UserControls
         {
             // Mezők kiürítése
             this.tb_Name.Text = this.Players[index].Name ?? string.Empty;
-            this.tb_Email.Text = this.Players[index].Email ?? string.Empty;
+            //this.tb_Email.Text = this.Players[index].Email ?? string.Empty;
+            if (String.IsNullOrEmpty(this.Players[index].Email))
+            {
+                this.tb_Email1.Text = "";
+                this.tb_Email2.Text = "";
+            }
+            else
+            {
+                this.tb_Email1.Text = this.Players[index].Email.Split('@')[0];
+                this.tb_Email2.Text = this.Players[index].Email.Split('@')[1];
+            }
+            
             this.tb_BirthDate.Text = this.Players[index].BirthDate ?? string.Empty;
             this.tb_BirthYear.Text = this.Players[index].BirthYear ?? string.Empty;
             this.tb_ZipCode.Text = this.Players[index].ZipCode?.ToString() ?? string.Empty;
@@ -166,6 +177,8 @@ namespace DeclarationOfConsentForm.UserControls
             if (string.IsNullOrEmpty(player.Email) || (ContainsDiacritics(player.Email) || (player.Email == tb_Email.PlaceholderText || !player.Email.Contains('@') || !player.Email.Contains('.'))))
             {
                 this.tb_Email.BackColor = Color.PeachPuff;
+                this.tb_Email1.BackColor = Color.PeachPuff;
+                this.tb_Email2.BackColor = Color.PeachPuff;
 
                 if (!string.IsNullOrEmpty(player.Email) && player.Email != tb_Email.PlaceholderText)
                 {
@@ -202,6 +215,7 @@ namespace DeclarationOfConsentForm.UserControls
             }
 
             this.pictureBox2.Visible = true;
+            this.label1.Visible = true;
             this.pictureBox1.Visible = false;
             foreach (var item in this.Players)
             {
@@ -209,6 +223,7 @@ namespace DeclarationOfConsentForm.UserControls
                 if (!item.IsValid)
                 {
                     this.pictureBox2.Visible = false;
+                    this.label1.Visible = false;
                     this.pictureBox1.Visible = true;
                 }
             }
@@ -277,7 +292,7 @@ namespace DeclarationOfConsentForm.UserControls
                 timer.Start();
 
                 // Megjelenítjük a MessageBox-ot
-                DialogResult result = CustomMessageBox.Show("Thank You!\nYour game master will be coming soon!", "Save Success!");
+                DialogResult result = CustomMessageBox.Show("Thank You!\nYour game master \nwill be coming soon!", "Save Success!");
 
                 // Ha a felhasználó az "OK" gombra kattint, leállítjuk az időzítőt és meghívjuk a Method1 metódust
                 if (result == DialogResult.OK)
@@ -304,7 +319,7 @@ namespace DeclarationOfConsentForm.UserControls
                 timer.Start();
 
                 // Megjelenítjük a MessageBox-ot
-                DialogResult result = CustomMessageBox.Show("Köszönjük!\nA játékmesteretek hamarosan jelentkezik!", "Mentés kész!");
+                DialogResult result = CustomMessageBox.Show("Köszönjük!\nA játékmesteretek hamarosan \njelentkezik!", "Mentés kész!");
 
                 // Ha a felhasználó az "OK" gombra kattint, leállítjuk az időzítőt és meghívjuk a Method1 metódust
                 if (result == DialogResult.OK)
@@ -401,6 +416,27 @@ namespace DeclarationOfConsentForm.UserControls
         }
 
         // MeasureItem eseménykezelő a dinamikus sor magassághoz
+        /*
+        private void listBox_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            // Kiválasztjuk a betűméretet a kijelöltség alapján
+            if (listBox.SelectedIndex == e.Index)
+            {
+                // Kijelölt elem esetén nagyobb betűméret
+                using (Font selectedFont = new Font(listBox.Font.FontFamily, listBox.Font.Size + 6, FontStyle.Bold))
+                {
+                    e.ItemHeight = selectedFont.Height + 10; // Magasság a betűmérethez igazítva
+                }
+            }
+            else
+            {
+                // Nem kijelölt elem normál magasság
+                e.ItemHeight = listBox.Font.Height + 4; // Normál magasság
+            }
+        }*/
+
         private void listBox_MeasureItem(object sender, MeasureItemEventArgs e)
         {
             if (e.Index < 0) return;
@@ -438,7 +474,7 @@ namespace DeclarationOfConsentForm.UserControls
             else
             {
                 // Nem érvényes játékos - piros háttér
-                e.Graphics.FillRectangle(Brushes.Coral, e.Bounds);
+                e.Graphics.FillRectangle(Brushes.Tomato, e.Bounds);
             }
 
             // Szöveg magasságának meghatározása
@@ -479,6 +515,24 @@ namespace DeclarationOfConsentForm.UserControls
 
                 // NEM kell minden játékost újra validálni a váltás során.
                 // Validálás csak akkor történik, amikor tényleges adatváltozás történik, pl. amikor a mezők értékét a felhasználó módosítja.
+            }
+        }
+        private void UpdateListBoxHeight()
+        {
+            // Számoljuk meg, hány elem van a listában
+            int itemCount = listBox.Items.Count;
+
+            // Maximális magasság pixelben
+            int maxHeight = 1110; // Ezt a számot állítsd be a kívánt maximális magasságra
+
+            // Ha vannak elemek, számoljuk ki az elem magasságát
+            if (itemCount > 0)
+            {
+                // Számoljuk ki a ListBox magasságát az elemek száma alapján
+                int newHeight = (itemCount-2) * listBox.ItemHeight;
+
+                // Ha az új magasság meghaladja a maximális magasságot, akkor korlátozzuk a maximális magasságra
+                listBox.Height = Math.Min(newHeight, maxHeight);
             }
         }
     }

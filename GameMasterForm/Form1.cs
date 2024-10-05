@@ -13,12 +13,19 @@ namespace GameMasterForm
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = PlayerLogic.GetPlayers(((DTOGame)comboBox1.SelectedItem).Id)
-                .Select(_ => new { _.Name, _.BirthYear, _.BirthDate, _.Email }).ToList();
+            try
+            {
+
+                dataGridView1.DataSource = PlayerLogic.GetPlayers(((DTOGame)comboBox1.SelectedItem).Id)
+                    .Select(_ => new { _.Name, _.BirthYear, _.BirthDate, _.Email }).ToList();
+            }
+            catch (Exception)
+            { }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.comboBox1.DataSource = null;
             this.comboBox1.DataSource = GameLogic.GetGames();
         }
     }

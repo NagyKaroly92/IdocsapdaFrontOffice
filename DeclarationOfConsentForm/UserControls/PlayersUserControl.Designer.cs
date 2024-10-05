@@ -44,6 +44,10 @@ namespace DeclarationOfConsentForm.UserControls
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             listBox = new ListBox();
+            label1 = new Label();
+            tb_Email1 = new TextBox();
+            tb_Email2 = new TextBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -52,13 +56,15 @@ namespace DeclarationOfConsentForm.UserControls
             // 
             checkBox2.AutoSize = true;
             checkBox2.BackColor = Color.Transparent;
-            checkBox2.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
+            checkBox2.Checked = true;
+            checkBox2.CheckState = CheckState.Checked;
+            checkBox2.Font = new Font("Calibri", 16F, FontStyle.Bold | FontStyle.Italic);
             checkBox2.ForeColor = SystemColors.ControlLightLight;
-            checkBox2.Location = new Point(200, 317);
+            checkBox2.Location = new Point(264, 428);
             checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(608, 32);
+            checkBox2.Size = new Size(715, 37);
             checkBox2.TabIndex = 20;
-            checkBox2.Text = "Az                                              megkaptam és tudomásul vettem.";
+            checkBox2.Text = "Az                                             megkaptam és tudomásul vettem.";
             checkBox2.UseVisualStyleBackColor = false;
             checkBox2.CheckedChanged += checkBox2_CheckedChanged;
             // 
@@ -66,11 +72,13 @@ namespace DeclarationOfConsentForm.UserControls
             // 
             checkBox1.AutoSize = true;
             checkBox1.BackColor = Color.Transparent;
-            checkBox1.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
+            checkBox1.Checked = true;
+            checkBox1.CheckState = CheckState.Checked;
+            checkBox1.Font = new Font("Calibri", 16F, FontStyle.Bold | FontStyle.Italic);
             checkBox1.ForeColor = SystemColors.ControlLightLight;
-            checkBox1.Location = new Point(200, 272);
+            checkBox1.Location = new Point(264, 383);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(849, 32);
+            checkBox1.Size = new Size(1002, 37);
             checkBox1.TabIndex = 19;
             checkBox1.Text = "A fent leírt információkat tudomásul vettem, és elfogadom a játékra szólószabályokat.";
             checkBox1.UseVisualStyleBackColor = false;
@@ -80,35 +88,35 @@ namespace DeclarationOfConsentForm.UserControls
             // 
             l_ZipCode.AutoSize = true;
             l_ZipCode.BackColor = Color.Transparent;
-            l_ZipCode.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
+            l_ZipCode.Font = new Font("Calibri", 16F, FontStyle.Bold | FontStyle.Italic);
             l_ZipCode.ForeColor = SystemColors.ControlLightLight;
-            l_ZipCode.Location = new Point(200, 215);
+            l_ZipCode.Location = new Point(264, 306);
             l_ZipCode.Name = "l_ZipCode";
-            l_ZipCode.Size = new Size(53, 28);
+            l_ZipCode.Size = new Size(279, 33);
             l_ZipCode.TabIndex = 17;
-            l_ZipCode.Text = "IRSZ";
+            l_ZipCode.Text = "Lakóhely irányítószáma";
             // 
             // l_BirthDate
             // 
             l_BirthDate.AutoSize = true;
             l_BirthDate.BackColor = Color.Transparent;
-            l_BirthDate.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
+            l_BirthDate.Font = new Font("Calibri", 16F, FontStyle.Bold | FontStyle.Italic);
             l_BirthDate.ForeColor = SystemColors.ControlLightLight;
-            l_BirthDate.Location = new Point(200, 165);
+            l_BirthDate.Location = new Point(264, 242);
             l_BirthDate.Name = "l_BirthDate";
-            l_BirthDate.Size = new Size(125, 28);
+            l_BirthDate.Size = new Size(286, 33);
             l_BirthDate.TabIndex = 15;
-            l_BirthDate.Text = "Születésnap";
+            l_BirthDate.Text = "Születésnap ( Pl.: 10.25 )";
             // 
             // l_Email
             // 
             l_Email.AutoSize = true;
             l_Email.BackColor = Color.Transparent;
-            l_Email.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
+            l_Email.Font = new Font("Calibri", 16F, FontStyle.Bold | FontStyle.Italic);
             l_Email.ForeColor = SystemColors.ControlLightLight;
-            l_Email.Location = new Point(200, 71);
+            l_Email.Location = new Point(264, 99);
             l_Email.Name = "l_Email";
-            l_Email.Size = new Size(65, 28);
+            l_Email.Size = new Size(78, 33);
             l_Email.TabIndex = 13;
             l_Email.Text = "Email";
             // 
@@ -116,22 +124,22 @@ namespace DeclarationOfConsentForm.UserControls
             // 
             l_Name.AutoSize = true;
             l_Name.BackColor = Color.Transparent;
-            l_Name.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
+            l_Name.Font = new Font("Calibri", 16F, FontStyle.Bold | FontStyle.Italic);
             l_Name.ForeColor = SystemColors.ControlLightLight;
-            l_Name.Location = new Point(200, 27);
+            l_Name.Location = new Point(264, 27);
             l_Name.Name = "l_Name";
-            l_Name.Size = new Size(49, 28);
+            l_Name.Size = new Size(59, 33);
             l_Name.TabIndex = 11;
             l_Name.Text = "Név";
             // 
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
+            linkLabel1.Font = new Font("Calibri", 16F, FontStyle.Bold | FontStyle.Italic);
             linkLabel1.LinkColor = Color.FromArgb(192, 192, 255);
-            linkLabel1.Location = new Point(261, 317);
+            linkLabel1.Location = new Point(325, 428);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(252, 28);
+            linkLabel1.Size = new Size(296, 33);
             linkLabel1.TabIndex = 25;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "adatvédelmi tájékoztatót";
@@ -141,61 +149,67 @@ namespace DeclarationOfConsentForm.UserControls
             // 
             l_BirthYear.AutoSize = true;
             l_BirthYear.BackColor = Color.Transparent;
-            l_BirthYear.Font = new Font("Calibri", 13.8F, FontStyle.Bold | FontStyle.Italic);
+            l_BirthYear.Font = new Font("Calibri", 16F, FontStyle.Bold | FontStyle.Italic);
             l_BirthYear.ForeColor = SystemColors.ControlLightLight;
-            l_BirthYear.Location = new Point(200, 115);
+            l_BirthYear.Location = new Point(264, 169);
             l_BirthYear.Name = "l_BirthYear";
-            l_BirthYear.Size = new Size(122, 28);
+            l_BirthYear.Size = new Size(145, 33);
             l_BirthYear.TabIndex = 28;
             l_BirthYear.Text = "Születési év";
             // 
             // tb_Name
             // 
+            tb_Name.Font = new Font("Segoe UI", 14F);
             tb_Name.ForeColor = Color.DarkGray;
-            tb_Name.Location = new Point(547, 27);
+            tb_Name.Location = new Point(689, 27);
             tb_Name.Name = "tb_Name";
             tb_Name.PlaceholderText = "pl.: Péda Játékos";
-            tb_Name.Size = new Size(238, 27);
+            tb_Name.Size = new Size(337, 39);
             tb_Name.TabIndex = 32;
             tb_Name.Text = "pl.: Péda Játékos";
             // 
             // tb_Email
             // 
+            tb_Email.Font = new Font("Segoe UI", 14F);
             tb_Email.ForeColor = Color.DarkGray;
-            tb_Email.Location = new Point(547, 71);
+            tb_Email.Location = new Point(891, 338);
             tb_Email.Name = "tb_Email";
             tb_Email.PlaceholderText = "pl.: pelda@example.com";
-            tb_Email.Size = new Size(238, 27);
+            tb_Email.Size = new Size(238, 39);
             tb_Email.TabIndex = 33;
             tb_Email.Text = "pl.: pelda@example.com";
+            tb_Email.Visible = false;
             // 
             // tb_BirthYear
             // 
+            tb_BirthYear.Font = new Font("Segoe UI", 14F);
             tb_BirthYear.ForeColor = Color.DarkGray;
-            tb_BirthYear.Location = new Point(547, 116);
+            tb_BirthYear.Location = new Point(689, 170);
             tb_BirthYear.Name = "tb_BirthYear";
             tb_BirthYear.PlaceholderText = "pl.: 1995";
-            tb_BirthYear.Size = new Size(238, 27);
+            tb_BirthYear.Size = new Size(337, 39);
             tb_BirthYear.TabIndex = 34;
             tb_BirthYear.Text = "pl.: 1995";
             // 
             // tb_BirthDate
             // 
+            tb_BirthDate.Font = new Font("Segoe UI", 14F);
             tb_BirthDate.ForeColor = Color.DarkGray;
-            tb_BirthDate.Location = new Point(547, 165);
+            tb_BirthDate.Location = new Point(689, 242);
             tb_BirthDate.Name = "tb_BirthDate";
             tb_BirthDate.PlaceholderText = "pl.: 10.25";
-            tb_BirthDate.Size = new Size(238, 27);
+            tb_BirthDate.Size = new Size(337, 39);
             tb_BirthDate.TabIndex = 35;
             tb_BirthDate.Text = "pl.: 10.25";
             // 
             // tb_ZipCode
             // 
+            tb_ZipCode.Font = new Font("Segoe UI", 14F);
             tb_ZipCode.ForeColor = Color.DarkGray;
-            tb_ZipCode.Location = new Point(547, 218);
+            tb_ZipCode.Location = new Point(689, 309);
             tb_ZipCode.Name = "tb_ZipCode";
             tb_ZipCode.PlaceholderText = "pl.: 1075";
-            tb_ZipCode.Size = new Size(238, 27);
+            tb_ZipCode.Size = new Size(337, 39);
             tb_ZipCode.TabIndex = 36;
             tb_ZipCode.Text = "pl.: 1075";
             // 
@@ -203,7 +217,7 @@ namespace DeclarationOfConsentForm.UserControls
             // 
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = Properties.Resources.hand_drawn_cartoon_design_button_5504519;
-            pictureBox1.Location = new Point(719, 375);
+            pictureBox1.Location = new Point(783, 486);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(102, 101);
             pictureBox1.TabIndex = 37;
@@ -212,10 +226,10 @@ namespace DeclarationOfConsentForm.UserControls
             // 
             // pictureBox2
             // 
-            pictureBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.hand_drawn_cartoon_design_button_5504519;
-            pictureBox2.Location = new Point(1026, 437);
+            pictureBox2.Location = new Point(610, 597);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(106, 104);
             pictureBox2.TabIndex = 38;
@@ -225,21 +239,64 @@ namespace DeclarationOfConsentForm.UserControls
             // listBox
             // 
             listBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            listBox.BackColor = SystemColors.Menu;
+            listBox.BackColor = SystemColors.ControlDark;
             listBox.DrawMode = DrawMode.OwnerDrawFixed;
+            listBox.Font = new Font("Calibri", 9F);
             listBox.FormattingEnabled = true;
             listBox.ItemHeight = 75;
-            listBox.Location = new Point(3, 3);
+            listBox.Location = new Point(22, 3);
             listBox.Name = "listBox";
-            listBox.Size = new Size(191, 529);
+            listBox.Size = new Size(191, 604);
             listBox.TabIndex = 39;
             listBox.DrawItem += listBox_DrawItem;
             listBox.SelectedIndexChanged += listBox_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 18F, FontStyle.Italic);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(517, 550);
+            label1.Name = "label1";
+            label1.Size = new Size(271, 37);
+            label1.TabIndex = 40;
+            label1.Text = "Adatok véglegesítése";
+            label1.Visible = false;
+            // 
+            // tb_Email1
+            // 
+            tb_Email1.Font = new Font("Segoe UI", 14F);
+            tb_Email1.Location = new Point(689, 99);
+            tb_Email1.Name = "tb_Email1";
+            tb_Email1.Size = new Size(159, 39);
+            tb_Email1.TabIndex = 41;
+            // 
+            // tb_Email2
+            // 
+            tb_Email2.Font = new Font("Segoe UI", 14F);
+            tb_Email2.Location = new Point(885, 99);
+            tb_Email2.Name = "tb_Email2";
+            tb_Email2.Size = new Size(141, 39);
+            tb_Email2.TabIndex = 42;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14F);
+            label2.Location = new Point(848, 102);
+            label2.Name = "label2";
+            label2.Size = new Size(37, 32);
+            label2.TabIndex = 43;
+            label2.Text = "@";
             // 
             // PlayersUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label2);
+            Controls.Add(tb_Email2);
+            Controls.Add(tb_Email1);
+            Controls.Add(label1);
             Controls.Add(listBox);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -257,7 +314,7 @@ namespace DeclarationOfConsentForm.UserControls
             Controls.Add(l_Email);
             Controls.Add(l_Name);
             Name = "PlayersUserControl";
-            Size = new Size(1149, 544);
+            Size = new Size(1149, 690);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -299,5 +356,9 @@ namespace DeclarationOfConsentForm.UserControls
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private ListBox listBox;
+        private Label label1;
+        private TextBox tb_Email1;
+        private TextBox tb_Email2;
+        private Label label2;
     }
 }
