@@ -68,7 +68,7 @@
             label1.AutoEllipsis = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Calibri", 16F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 238);
-            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.ForeColor = Color.Gold;
             label1.Location = new Point(53, 100);
             label1.Name = "label1";
             label1.Size = new Size(691, 349);

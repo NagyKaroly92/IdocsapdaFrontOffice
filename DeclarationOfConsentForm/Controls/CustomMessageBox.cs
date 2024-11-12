@@ -19,7 +19,7 @@ namespace DeclarationOfConsentForm.Controls
             InitializeComponent();
 
             // Ablak méretének növelése
-            this.Size = new Size(600, 300); // 3x nagyobb méret az alapértelmezetthez képest
+            this.Size = new Size(1000, 600); // 3x nagyobb méret az alapértelmezetthez képest
             this.StartPosition = FormStartPosition.CenterScreen; // Középre igazítás
 
             // Betűtípus méretének növelése

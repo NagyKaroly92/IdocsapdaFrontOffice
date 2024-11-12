@@ -24,12 +24,12 @@ namespace DeclarationOfConsentForm.UserControls
 
             for (int i = 0; i <= 23; i++)
             {
-                this.cb_Time1.Items.Add(i);
+                this.cb_Time1.Items.Add(i.ToString("D2"));
             }
 
             for (int i = 0; i < 60; i+=15)
             {
-                this.cb_Time2.Items.Add(i);
+                this.cb_Time2.Items.Add(i.ToString("D2"));
             }
         }
 

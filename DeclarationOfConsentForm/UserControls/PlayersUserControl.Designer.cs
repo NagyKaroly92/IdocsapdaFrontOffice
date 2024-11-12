@@ -37,7 +37,6 @@ namespace DeclarationOfConsentForm.UserControls
             linkLabel1 = new LinkLabel();
             l_BirthYear = new Label();
             tb_Name = new Controls.PlaceholderTextBox();
-            tb_Email = new Controls.PlaceholderTextBox();
             tb_BirthYear = new Controls.PlaceholderTextBox();
             tb_BirthDate = new Controls.PlaceholderTextBox();
             tb_ZipCode = new Controls.PlaceholderTextBox();
@@ -168,18 +167,6 @@ namespace DeclarationOfConsentForm.UserControls
             tb_Name.TabIndex = 32;
             tb_Name.Text = "pl.: Péda Játékos";
             // 
-            // tb_Email
-            // 
-            tb_Email.Font = new Font("Segoe UI", 14F);
-            tb_Email.ForeColor = Color.DarkGray;
-            tb_Email.Location = new Point(891, 338);
-            tb_Email.Name = "tb_Email";
-            tb_Email.PlaceholderText = "pl.: pelda@example.com";
-            tb_Email.Size = new Size(238, 39);
-            tb_Email.TabIndex = 33;
-            tb_Email.Text = "pl.: pelda@example.com";
-            tb_Email.Visible = false;
-            // 
             // tb_BirthYear
             // 
             tb_BirthYear.Font = new Font("Segoe UI", 14F);
@@ -226,7 +213,7 @@ namespace DeclarationOfConsentForm.UserControls
             // 
             // pictureBox2
             // 
-            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.hand_drawn_cartoon_design_button_5504519;
             pictureBox2.Location = new Point(610, 597);
@@ -303,7 +290,6 @@ namespace DeclarationOfConsentForm.UserControls
             Controls.Add(tb_ZipCode);
             Controls.Add(tb_BirthDate);
             Controls.Add(tb_BirthYear);
-            Controls.Add(tb_Email);
             Controls.Add(tb_Name);
             Controls.Add(l_BirthYear);
             Controls.Add(linkLabel1);
@@ -326,7 +312,7 @@ namespace DeclarationOfConsentForm.UserControls
             if (!RoomLogic.IsEnglish)
             {
                 tb_Name.PlaceholderText = "pl.: Péda Játékos";
-                tb_Email.PlaceholderText = "pl.: pelda@example.com";
+                //tb_Email.PlaceholderText = "pl.: pelda@example.com";
                 tb_BirthYear.PlaceholderText = "pl.: 1995";
                 tb_BirthDate.PlaceholderText = "pl.: 10.25";
                 tb_ZipCode.PlaceholderText = "pl.: 1075";
@@ -334,7 +320,7 @@ namespace DeclarationOfConsentForm.UserControls
             else
             {
                 tb_Name.PlaceholderText = "e.g.: John Doe";
-                tb_Email.PlaceholderText = "e.g.: example@example.com";
+                //tb_Email.PlaceholderText = "e.g.: example@example.com";
                 tb_BirthYear.PlaceholderText = "e.g.: 1995";
                 tb_BirthDate.PlaceholderText = "e.g.: 10.25";
                 tb_ZipCode.PlaceholderText = "e.g.: 1075";
@@ -349,7 +335,6 @@ namespace DeclarationOfConsentForm.UserControls
         private LinkLabel linkLabel1;
         private Label l_BirthYear;
         private Controls.PlaceholderTextBox tb_Name;
-        private Controls.PlaceholderTextBox tb_Email;
         private Controls.PlaceholderTextBox tb_BirthYear;
         private Controls.PlaceholderTextBox tb_BirthDate;
         private Controls.PlaceholderTextBox tb_ZipCode;

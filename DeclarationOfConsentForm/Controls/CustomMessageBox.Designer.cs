@@ -43,9 +43,9 @@
             // okButton
             // 
             okButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            okButton.Location = new Point(177, 30);
+            okButton.Location = new Point(425, 167);
             okButton.Name = "okButton";
-            okButton.Size = new Size(114, 71);
+            okButton.Size = new Size(164, 107);
             okButton.TabIndex = 1;
             okButton.Text = "OK";
             okButton.UseVisualStyleBackColor = true;
@@ -55,7 +55,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(303, 113);
+            ClientSize = new Size(601, 286);
             Controls.Add(okButton);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedDialog;

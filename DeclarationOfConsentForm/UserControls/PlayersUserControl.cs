@@ -71,6 +71,8 @@ namespace DeclarationOfConsentForm.UserControls
                         new DTOPlayer
                         {
                             GameId = game.GameId,
+                            Accept1 = true,
+                            Accept2 = true,
                             IsValid = false
                         });
                 }
@@ -136,7 +138,7 @@ namespace DeclarationOfConsentForm.UserControls
 
             // Placeholder frissítése
             this.tb_Name.UpdatePlaceholder();
-            this.tb_Email.UpdatePlaceholder();
+            //this.tb_Email.UpdatePlaceholder();
             this.tb_BirthYear.UpdatePlaceholder();
             this.tb_BirthDate.UpdatePlaceholder();
             this.tb_ZipCode.UpdatePlaceholder();
@@ -161,32 +163,43 @@ namespace DeclarationOfConsentForm.UserControls
         private void Validate(DTOPlayer player)
         {
             this.tb_Name.BackColor = Color.White;
-            this.tb_Email.BackColor = Color.White;
+            //this.tb_Email.BackColor = Color.White;
+            
             this.tb_ZipCode.BackColor = Color.White;
             this.tb_BirthYear.BackColor = Color.White;
             this.tb_BirthDate.BackColor = Color.White;
+            this.tb_Email1.BackColor = Color.White;
+            this.tb_Email2.BackColor = Color.White;
 
-            player.IsValid = true;
+           player.IsValid = true;
             int a = 0;
 
+
+            if (string.IsNullOrEmpty(tb_Email1.Text))
+            {
+                this.tb_Email1.BackColor = Color.PeachPuff;
+            }
             if (string.IsNullOrEmpty(player.Name) || player.Name == tb_Name.PlaceholderText || player.Name.Split(' ').Count() < 2)
             {
                 this.tb_Name.BackColor = Color.PeachPuff;
                 player.IsValid = false;
             }
-            if (string.IsNullOrEmpty(player.Email) || (ContainsDiacritics(player.Email) || (player.Email == tb_Email.PlaceholderText || !player.Email.Contains('@') || !player.Email.Contains('.'))))
+            if (!tb_Email2.Text.Contains(".")/*string.IsNullOrEmpty(player.Email) || (ContainsDiacritics(player.Email) || (player.Email == tb_Email.PlaceholderText || !player.Email.Contains('@') || !player.Email.Contains('.')))*/)
             {
-                this.tb_Email.BackColor = Color.PeachPuff;
-                this.tb_Email1.BackColor = Color.PeachPuff;
+                //this.tb_Email.BackColor = Color.PeachPuff;
                 this.tb_Email2.BackColor = Color.PeachPuff;
 
-                if (!string.IsNullOrEmpty(player.Email) && player.Email != tb_Email.PlaceholderText)
+                if (!string.IsNullOrEmpty(player.Email) /*&& player.Email != tb_Email.PlaceholderText*/)
                 {
                     player.IsValid = false;
                 }
             }
             if (string.IsNullOrEmpty(tb_BirthDate.Text) || tb_BirthDate.Text == tb_BirthDate.PlaceholderText || !(tb_BirthDate.Text.Length == 5 && tb_BirthDate.Text.Split('.')[0].Length == 2))
             {
+
+                tb_BirthDate.Text = tb_BirthDate.Text.Replace('/', '.').Replace('-', '.');
+                tb_BirthDate.Text = tb_BirthDate.Text.EndsWith(".") ? tb_BirthDate.Text.Substring(0, tb_BirthDate.Text.Length - 1) : tb_BirthDate.Text;
+
                 this.tb_BirthDate.BackColor = Color.PeachPuff;
                 player.IsValid = false;
             }
@@ -319,7 +332,8 @@ namespace DeclarationOfConsentForm.UserControls
                 timer.Start();
 
                 // Megjelenítjük a MessageBox-ot
-                DialogResult result = CustomMessageBox.Show("Köszönjük!\nA játékmesteretek hamarosan \njelentkezik!", "Mentés kész!");
+                //DialogResult result = CustomMessageBox.Show("Köszönjük!\nA játékmesteretek hamarosan \njelentkezik!", "Mentés kész!");
+                DialogResult result = CustomMessageBox.Show("Köszönjük!\nA játékmester hamarosan jön értetek, \naddig maradjatok a váróteremben", "Mentés kész!");
 
                 // Ha a felhasználó az "OK" gombra kattint, leállítjuk az időzítőt és meghívjuk a Method1 metódust
                 if (result == DialogResult.OK)
@@ -358,7 +372,7 @@ namespace DeclarationOfConsentForm.UserControls
 
             // Frissítjük az aktuális játékos adatait
             this.Players[selectedItem].Name = this.tb_Name.Text;
-            this.Players[selectedItem].Email = this.tb_Email.Text;
+            //this.Players[selectedItem].Email = this.tb_Email.Text;
             this.Players[selectedItem].BirthDate = tb_BirthDate.Text;
             this.Players[selectedItem].BirthYear = tb_BirthYear.Text;
 
@@ -396,9 +410,9 @@ namespace DeclarationOfConsentForm.UserControls
             tb_Name.PlaceholderText = "e.g.: John Doe";
             tb_Name.UpdatePlaceholder();
 
-            tb_Email.Text = "";
-            tb_Email.PlaceholderText = "e.g.: example@example.com";
-            tb_Email.UpdatePlaceholder();
+            //tb_Email.Text = "";
+            //tb_Email.PlaceholderText = "e.g.: example@example.com";
+            //tb_Email.UpdatePlaceholder();
 
             tb_BirthYear.Text = "";
             tb_BirthYear.PlaceholderText = "e.g.: 1995";
@@ -529,7 +543,7 @@ namespace DeclarationOfConsentForm.UserControls
             if (itemCount > 0)
             {
                 // Számoljuk ki a ListBox magasságát az elemek száma alapján
-                int newHeight = (itemCount-2) * listBox.ItemHeight;
+                int newHeight = (itemCount+2) * listBox.ItemHeight;
 
                 // Ha az új magasság meghaladja a maximális magasságot, akkor korlátozzuk a maximális magasságra
                 listBox.Height = Math.Min(newHeight, maxHeight);
